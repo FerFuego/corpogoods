@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "copilot_flex_layout_EdQUxD": {
+      "type": "copilot-flex-layout",
+      "blocks": {
+        "container_CbhhYe": {
+          "type": "container",
+          "settings": {
+            "container_name": "left",
+            "layout": "flex",
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "20px",
+            "gap": "0"
+          }
+        },
+        "heading_JaBHmY": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "left",
+            "text": "El regalo corporativo también es marca",
+            "heading_tag": "h1",
+            "color": "#171717",
+            "font_size": "45px",
+            "font_weight": "700",
+            "margin": "0 0 10px 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "text_t6jWF7": {
+          "type": "text",
+          "settings": {
+            "parent_container_name": "left",
+            "text": "En Corpogoods creemos que regalar no es cumplir. Es representar. Cada objeto que entregas habla de tu marca: de lo que valoras, de cómo cuidas los detalles  y de cuánto te importa lo que permanece cuando el impacto inicial se apaga. Por eso no creemos en el merchandising barato, ni en vender por vender,  ni en catálogos sin criterio. \n<br><br>\nCreemos en menos productos y mejores decisiones. En regalos útiles, duraderos y coherentes con lo que una marca quiere transmitir. No somos un marketplace. Somos un partner de marca. \n<br><br>\nAcompañamos a empresas que entienden que el regalo corporativo no es un gasto puntual, sino una forma de construir identidad, cultura y recuerdo. Porque una marca se construye en los detalles que permanecen.",
+            "color": "#979798",
+            "font_size": "20px",
+            "font_weight": "400",
+            "line_height": "1.2em",
+            "text_align": "left",
+            "margin": "0",
+            "padding": "0"
+          }
+        },
+        "container_NL4Aji": {
+          "type": "container",
+          "settings": {
+            "container_name": "right",
+            "layout": "flex",
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "10px",
+            "gap": "0"
+          }
+        },
+        "video_hJ3PJH": {
+          "type": "video",
+          "settings": {
+            "parent_container_name": "right",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "cover_image": "shopify://shop_images/young-person-intership_1.webp",
+            "enable_video_looping": false,
+            "width": "536px",
+            "height": "575px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "15px"
+          }
+        }
+      },
+      "block_order": [
+        "container_CbhhYe",
+        "heading_JaBHmY",
+        "text_t6jWF7",
+        "container_NL4Aji",
+        "video_hJ3PJH"
+      ],
+      "name": "Copilot - Flexible Container",
+      "settings": {
+        "layout": "flex",
+        "flex_direction": "row",
+        "justify_content": "center",
+        "align_items": "center",
+        "background_color": "#ffffff",
+        "border": "0",
+        "width": "1130px",
+        "height": "auto",
+        "margin": "100px auto",
+        "padding": "10px",
+        "column_count": 3,
+        "rows_count": 3,
+        "gap": "0",
+        "custom_class": "copilot-content-contact"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "copilot_flex_layout_EdQUxD"
+  ]
+}

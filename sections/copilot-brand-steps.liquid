@@ -1,0 +1,285 @@
+{% style %}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.copilot-brand-steps {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1300px;
+  margin: 80px auto;
+  padding: 0 30px;
+}
+
+.copilot-brand-steps__title {
+  font-family: Poppins;
+  font-size: 30px;
+  font-weight: 700;
+  color: #171717;
+  max-width: 520px;
+  line-height: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  width: 409px;
+}
+.copilot-brand-steps__title span {
+  position: relative;
+}
+
+.copilot-brand-steps__title span::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  bottom: -7px;
+  background-image: url(https://cdn.shopify.com/s/files/1/0955/0731/7063/files/sub.svg?v=1769623855);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 20px;
+  width: 172px;
+}
+
+.copilot-brand-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-card__image {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.step-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.step-card__number {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.step-card__title {
+  font-family: Poppins;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #171717;
+  margin-bottom: 6px;
+}
+
+.step-card__text {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.98px;
+  color: #979798;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .copilot-brand-steps {
+    margin: 0;
+    padding: 0px 20px;
+    max-width: 100%;
+  }
+  .copilot-brand-steps__title {
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .step-card__title {
+    text-align: center;
+  }
+  .step-card__text {
+    line-height: 20px;
+    text-align: center;
+  }
+  .copilot-brand-steps__grid {
+    display: block; /* IMPORTANTE: quitar grid */
+    position: relative;
+    padding: 0 40px;
+  }
+  .copilot-brand-steps__grid .step-card {
+    width: 100%;
+  }
+  /* arregla el track */
+  .copilot-brand-steps__grid .slick-track {
+    display: flex;
+  }
+  .copilot-brand-steps__grid .slick-list{
+    padding: 0 !important;
+    overflow: hidden;
+    margin: 0 -10px;
+  }
+  .copilot-brand-steps__grid .slick-slide {
+    margin: 0 10px;
+    height: auto;
+  }
+  .js-steps-slider .slick-arrows {
+    position: absolute;
+    top: 35%;
+  }
+  .js-steps-slider .slick-prev {
+    left: -8px;
+    z-index: 2;
+  }
+  .js-steps-slider .slick-next {
+    right: -8px;
+    z-index: 2;
+  }
+}
+{% endstyle %}
+
+<section class="copilot-brand-steps">
+
+  <h2 class="copilot-brand-steps__title">
+    {{ section.settings.title }}
+  </h2>
+
+  <div class="copilot-brand-steps__grid js-steps-slider">
+
+    {% for block in section.blocks %}
+      <div class="step-card" {{ block.shopify_attributes }}>
+
+        <div class="step-card__image">
+          {% if block.settings.image != blank %}
+            <img 
+              src="{{ block.settings.image | image_url: width: 900 }}"
+              alt="{{ block.settings.title }}"
+              loading="lazy"
+            >
+          {% endif %}
+
+          <div class="step-card__number">
+            {{ block.settings.number }}
+          </div>
+        </div>
+
+        <div class="step-card__title">
+          {{ block.settings.title }}
+        </div>
+
+        <div class="step-card__text">
+          {{ block.settings.text }}
+        </div>
+
+      </div>
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const slider = document.querySelector('.js-steps-slider');
+
+  if (!slider) return;
+
+  function initSlider() {
+
+    if (window.innerWidth <= 768) {
+
+      if (!slider.classList.contains('slick-initialized')) {
+
+        jQuery(slider).slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: false,
+          infinite: false,
+          adaptiveHeight: true,
+          mobileFirst: true,
+          centerMode: false,
+          variableWidth: false,
+          prevArrow: '<svg xmlns="http://www.w3.org/2000/svg" class="slick-arrows slick-prev" width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" transform="rotate(90 18 18)" fill="#FE7D00"/><path d="M24 18.6469L12.8063 18.6469M12.8063 18.6469L17.1594 23M12.8063 18.6469L17.1594 14.2938" stroke="white" stroke-width="1.59911" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+		      nextArrow: '<svg xmlns="http://www.w3.org/2000/svg" class="slick-arrows slick-next" width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" transform="rotate(-90 18 18)" fill="#FE7D00"/><path d="M12 18.3531L23.1937 18.3531M23.1937 18.3531L18.8406 14M23.1937 18.3531L18.8406 22.7062" stroke="white" stroke-width="1.59911" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        });
+
+      }
+
+    } else {
+
+      if (slider.classList.contains('slick-initialized')) {
+
+        jQuery(slider).slick('unslick');
+
+      }
+
+    }
+
+  }
+
+  initSlider();
+  window.addEventListener('resize', initSlider);
+
+});
+
+</script>
+
+{% schema %}
+{
+  "name": "Copilot Brand Steps",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título principal",
+      "default": "Representar bien tu marca es más fácil de lo que parece"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Número",
+          "default": "01."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Selecciona con criterio"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texto",
+          "default": "Explora un catálogo corto de productos premium ya filtrados."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Copilot Brand Steps"
+    }
+  ]
+}
+{% endschema %}

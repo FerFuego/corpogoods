@@ -1,0 +1,239 @@
+<section class="slider-cards">
+
+  <div class="slider-layout">
+
+    <!-- BOX FIJO -->
+    <div class="fixed-box">
+      <h2>{{ section.settings.fixed_title }}</h2>
+      <p>{{ section.settings.fixed_text }}</p>
+
+      <div class="nav-buttons">
+        <div class="swiper-button-prev custom-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11" viewBox="0 0 13 11" fill="none"><path d="M11.9933 5.15266L0.799552 5.15266M0.799552 5.15266L5.15267 9.50574M0.799552 5.15266L5.15267 0.799505" stroke="white" stroke-width="1.59911" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="swiper-button-next custom-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11" viewBox="0 0 13 11" fill="none"><path d="M0.79956 5.15264L11.9933 5.15264M11.9933 5.15264L7.64019 0.799561M11.9933 5.15264L7.64019 9.50579" stroke="white" stroke-width="1.59911" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDER -->
+    <div class="slider-wrapper">
+      <div class="swiper sliderCardsSwiper">
+        <div class="swiper-wrapper">
+
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+              <div class="card">
+
+                {% if block.settings.image %}
+                  <div class="card-image">
+                    <img src="{{ block.settings.image | image_url: width: 600 }}" alt="">
+                  </div>
+                {% endif %}
+
+                <div class="card-content">
+                  <h3>{{ block.settings.title }}</h3>
+                  <p>{{ block.settings.text }}</p>
+                </div>
+
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+    .slider-layout {
+        display: flex;
+        gap: 30px;
+        align-items: stretch;
+        margin: 40px auto 0;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    /* Box fijo */
+    .fixed-box {
+        width: 320px;
+        background: #F5F5F5;
+        border-radius: 24px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .fixed-box h2 {
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 40px;
+        letter-spacing: 0;
+        text-align: center;
+        color: #171717;
+        margin: 0;
+    }
+
+    .fixed-box p {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.98px;
+        text-align: center;
+        color: #979798;
+        margin: 0;
+    }
+
+    .nav-buttons {
+        display: flex;
+        gap: 12px;
+        height: 36px;
+    }
+
+    .custom-prev,
+    .custom-next {
+        position: relative !important;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #FE7D00;
+        color: #fff;
+        left: 0;
+        right: 0;
+    }
+
+     .custom-prev svg,
+    .custom-next svg {
+      padding: 12px;
+    }
+
+    .custom-prev::after,
+    .custom-next::after {
+        font-size: 14px;
+        color: #fff;
+        display: none;
+    }
+
+    /* Slider */
+    .slider-wrapper {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .sliderCardsSwiper .swiper-slide {
+        width: 280px;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 24px;
+        overflow: hidden;
+        height: 100%;
+        position: relative;
+    }
+
+    .card-image img {
+        width: 100%;
+        display: block;
+    }
+
+    .card-content {
+        position: absolute;
+        padding: 24px;
+    }
+
+    .card-content h3 {
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0;
+        color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .slider-layout {
+            flex-direction: column;
+        }
+        .fixed-box {
+          width: 100%;
+          background-color: #fff;
+          padding: 0 20px;
+          margin-top: 0px;
+        }
+        .fixed-box h2 {
+          font-size: 25px;
+          line-height: 28px;
+        }
+        .fixed-box p {
+          font-size: 15px;
+          line-height: 20px;
+        }
+        .slider-layout {
+          gap: 15px;
+        }
+        .slider-wrapper {
+          padding-left: 20px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        new Swiper(".sliderCardsSwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 24,
+            loop: true,
+            navigation: {
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev"
+            }
+        });
+    });
+</script>
+
+{% schema %}
+    {
+    "name": "Copilot Boxes Slider",
+    "settings": [
+        {
+        "type": "text",
+        "id": "fixed_title",
+        "label": "Título del box fijo",
+        "default": "¿Qué podemos hacer por ti?"
+        },
+        {
+        "type": "textarea",
+        "id": "fixed_text",
+        "label": "Texto del box fijo",
+        "default": "Ayuda personalizada, kits de bienvenida, kits para eventos y mucho más..."
+        }
+    ],
+    "blocks": [
+        {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+            { "type": "image_picker", "id": "image", "label": "Imagen" },
+            { "type": "text", "id": "title", "label": "Título" },
+            { "type": "textarea", "id": "text", "label": "Texto" }
+        ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Copilot Boxes Slider"
+        }
+    ]
+    }
+{% endschema %}

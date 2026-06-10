@@ -1,0 +1,181 @@
+{% comment %}
+  WhatsApp Floating Button — Snippet
+  Uso: {% render 'whatsapp-button' %}
+  Configuración desde: Sections > Footer (o cualquier section que lo incluya)
+{% endcomment %}
+
+{%- liquid
+  assign wa_phone    = section.settings.whatsapp_phone   | default: ''
+  assign wa_message  = section.settings.whatsapp_message | default: ''
+  assign wa_size     = section.settings.whatsapp_size    | default: 60
+  assign wa_position = section.settings.whatsapp_position | default: 'right'
+  assign wa_tooltip  = section.settings.whatsapp_tooltip | default: '¡Hablemos!'
+  assign wa_show_tooltip = section.settings.whatsapp_show_tooltip | default: true
+  assign wa_pulse    = section.settings.whatsapp_pulse   | default: true
+  assign wa_offset_x = section.settings.whatsapp_offset_x | default: 24
+  assign wa_offset_y = section.settings.whatsapp_offset_y | default: 24
+-%}
+
+{%- if wa_phone != blank -%}
+  {%- assign wa_encoded_message = wa_message | url_encode -%}
+  {%- assign wa_href = 'https://wa.me/' | append: wa_phone -%}
+  {%- if wa_message != blank -%}
+    {%- assign wa_href = wa_href | append: '?text=' | append: wa_encoded_message -%}
+  {%- endif -%}
+
+  {%- assign btn_half = wa_size | divided_by: 2 -%}
+  {%- assign icon_size = wa_size | times: 0.55 | round -%}
+
+  <style>
+    :root {
+      --wa-size: {{ wa_size }}px;
+      --wa-offset-x: {{ wa_offset_x }}px;
+      --wa-offset-y: {{ wa_offset_y }}px;
+      --wa-icon-size: {{ icon_size }}px;
+      --wa-green: #25D366;
+      --wa-green-dark: #1DA851;
+      --wa-green-light: #dcfce7;
+      --wa-shadow: 0 4px 24px rgba(37,211,102,0.35);
+    }
+
+    .wa-fab {
+      position: fixed;
+      bottom: var(--wa-offset-y);
+      {{ wa_position }}: var(--wa-offset-x);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+       {%- if wa_position == 'left' -%}
+        flex-direction: row-reverse;
+        {%- else -%}
+        flex-direction: row;
+        {%- endif -%}
+      pointer-events: none;
+    }
+
+    .wa-fab__btn {
+      pointer-events: auto;
+      width: var(--wa-size);
+      height: var(--wa-size);
+      border-radius: 50%;
+      background: var(--wa-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--wa-shadow);
+      text-decoration: none;
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1),
+                  background 0.2s ease,
+                  box-shadow 0.2s ease;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .wa-fab__btn:hover {
+      background: var(--wa-green-dark);
+      transform: scale(1.1);
+      box-shadow: 0 6px 32px rgba(37,211,102,0.5);
+    }
+
+    .wa-fab__btn:active {
+      transform: scale(0.95);
+    }
+
+    .wa-fab__btn svg {
+      width: var(--wa-icon-size);
+      height: var(--wa-icon-size);
+      fill: #ffffff;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* Tooltip */
+    .wa-fab__tooltip {
+      pointer-events: none;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 13px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      line-height: 1;
+      padding: 8px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    .wa-fab:hover .wa-fab__tooltip {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Pulse ring */
+    .wa-fab__pulse {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--wa-green);
+      opacity: 0;
+      animation: wa-pulse 2.4s cubic-bezier(0.4,0,0.6,1) infinite;
+    }
+
+    .wa-fab__pulse:nth-child(2) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes wa-pulse {
+      0%   { transform: scale(1);   opacity: 0.55; }
+      70%  { transform: scale(1.7); opacity: 0;    }
+      100% { transform: scale(1.7); opacity: 0;    }
+    }
+
+    /* Entrada */
+    .wa-fab__btn {
+      animation: wa-bounce-in 0.6s cubic-bezier(.34,1.56,.64,1) both;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes wa-bounce-in {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    /* Accesibilidad: respeta prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .wa-fab__pulse { display: none; }
+      .wa-fab__btn   { animation: none; }
+    }
+  </style>
+
+  <div class="wa-fab" role="complementary" aria-label="Contacto por WhatsApp">
+
+    {%- if wa_show_tooltip and wa_tooltip != blank -%}
+      <div class="wa-fab__tooltip" aria-hidden="true">{{ wa_tooltip }}</div>
+    {%- endif -%}
+
+    <a
+      class="wa-fab__btn"
+      href="{{ wa_href }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+      title="{{ wa_tooltip }}"
+    >
+      {%- if wa_pulse -%}
+        <span class="wa-fab__pulse" aria-hidden="true"></span>
+        <span class="wa-fab__pulse" aria-hidden="true"></span>
+      {%- endif -%}
+
+      {%- comment %} Icono oficial de WhatsApp (SVG inline) {%- endcomment -%}
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M16.001 2C8.268 2 2 8.268 2 16c0 2.49.652 4.828 1.789 6.855L2 30l7.363-1.768A13.943 13.943 0 0 0 16.001 30C23.732 30 30 23.732 30 16S23.732 2 16.001 2zm0 25.385a11.33 11.33 0 0 1-5.78-1.585l-.414-.246-4.367 1.049 1.072-4.256-.27-.437A11.354 11.354 0 0 1 4.615 16c0-6.285 5.1-11.385 11.386-11.385S27.385 9.715 27.385 16 22.285 27.385 16.001 27.385zm6.24-8.515c-.342-.171-2.025-1-2.341-1.113-.315-.115-.544-.171-.774.171-.228.343-.887 1.114-1.087 1.342-.2.228-.4.257-.742.086-.342-.172-1.443-.531-2.748-1.694-1.016-.906-1.702-2.025-1.902-2.367-.2-.343-.021-.528.15-.699.155-.153.342-.4.514-.6.17-.2.228-.342.342-.571.114-.228.057-.428-.029-.6-.086-.171-.773-1.862-1.059-2.549-.279-.67-.563-.58-.774-.59-.2-.009-.428-.011-.657-.011-.228 0-.6.086-.914.428-.315.343-1.2 1.172-1.2 2.862 0 1.689 1.228 3.322 1.4 3.55.171.228 2.415 3.688 5.852 5.17.818.352 1.457.563 1.953.72.82.261 1.567.224 2.157.136.658-.098 2.025-.827 2.311-1.626.285-.8.285-1.484.2-1.626-.086-.143-.315-.229-.657-.4z"/>
+      </svg>
+    </a>
+
+  </div>
+
+{%- endif -%}

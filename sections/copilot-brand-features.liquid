@@ -1,0 +1,217 @@
+
+<section class="copilot-brand-features">
+  
+  <h2 class="copilot-brand-features__title">
+    {{ section.settings.title }}
+  </h2>
+
+  <div class="copilot-brand-features__grid">
+    {% for block in section.blocks %}
+      <div class="feature-item" {{ block.shopify_attributes }}>
+        
+        {% if block.settings.icon != blank %}
+            <div class="feature-item__img">
+                <img 
+                    src="{{ block.settings.icon | image_url: width: 120 }}" 
+                    alt="{{ block.settings.title }}"
+                    loading="lazy"
+                >
+            </div>
+        {% endif %}
+
+        <div class="feature-item__title">
+          {{ block.settings.title }}
+        </div>
+
+        <div class="feature-item__text">
+          {{ block.settings.text }}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+</section>
+
+{% style %}
+    .copilot-brand-features {
+        font-family: Poppins, sans-serif;
+        background: #f5f5f5;
+        border-radius: 15px;
+        padding: 74px 76px;
+        max-width: 1230px;
+        margin: 60px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .copilot-brand-features__title {
+        font-family: Poppins, sans-serif;
+        text-align: center;
+        font-size: 30px;
+        line-height: 40px;
+        font-weight: 700;
+        color: #171717;
+        margin: 0 auto;
+        max-width: 590px;
+    }
+
+    .copilot-brand-features__title span {
+      position: relative;
+    }
+
+    .copilot-brand-features__title span::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      bottom: -7px;
+      background-image: url(https://cdn.shopify.com/s/files/1/0955/0731/7063/files/sub.svg?v=1769623855);
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 20px;
+      width: 172px;
+    }
+
+    .copilot-brand-features__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+
+    .feature-item {
+        text-align: center;
+    }
+
+    .feature-item__img {
+        display: block;
+        margin: 0 auto 16px;
+        height: 50px;
+        width: 60px;
+    }
+
+    .feature-item img {
+        display: block;
+        height: 50px;
+        width: auto;
+    }
+
+    .feature-item__title {
+        font-family: Poppins, sans-serif;
+        font-size: 30px;
+        line-height: 32px;
+        font-weight: 600;
+        color: #171717;
+        margin: 20px auto 8px;
+    }
+
+    .feature-item__text {
+        font-family: Poppins, sans-serif;
+        font-size: 16px;
+        color: #979798;
+        line-height: 26px;
+    }
+
+    @media (max-width: 992px) {
+      .copilot-brand-features__grid {
+          grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .copilot-brand-features {
+        padding: 46px 20px;
+        max-width: 90%;
+      }
+      .copilot-brand-features__grid {
+          grid-template-columns: 1fr;
+          grid-gap: 20px;
+          padding: 0 30px;
+      }
+      .copilot-brand-features__title {
+        font-size: 25px;
+        line-height: 30px;
+      }
+      .feature-item {
+        display: grid;
+        grid-template-columns: 50px 1fr; /* icono fijo + texto flexible */
+        grid-template-areas:
+          "icon title"
+          "icon text";
+        column-gap: 12px;
+        align-items: center;
+      }
+
+      .feature-item__img {
+        grid-area: icon;
+        display: flex;
+        align-items: center;
+      }
+
+      .feature-item__img img {
+        width: 40px; /* ajusta si querés */
+        height: auto;
+      }
+
+      .feature-item__title {
+        font-size: 20px;
+        line-height: 24px;
+        grid-area: title;
+        margin: 0;
+        text-align: left;
+      }
+
+      .feature-item__text {
+        font-size: 16px;
+        line-height: 20px;
+        grid-area: text;
+        margin: 0;
+        text-align: left;
+      }
+    }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Copilot Brand Features",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título principal",
+      "default": "Eleva el regalo corporativo al nivel de tu marca"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Ítem",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icono / Imagen"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Seguridad"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texto",
+          "default": "Productos ya validados. Sin riesgo reputacional."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Copilot Brand Features"
+    }
+  ]
+}
+{% endschema %}

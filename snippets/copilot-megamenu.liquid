@@ -1,0 +1,342 @@
+{% stylesheet %}
+
+  .copilot-megamenu {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    transition: .25s;
+    padding: 40px 0;
+  }
+  .header__menu-item:hover .copilot-megamenu {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .copilot-megamenu__container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.2fr;
+    gap: 40px;
+  }
+  .copilot-tab-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    width: 100%;
+  }
+  .copilot-megamenu__col h3 {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    color: #171717;
+    margin-bottom: 0;
+  }
+  .copilot-megamenu__col--links ul {
+    list-style: none;
+    padding: 0;
+  }
+  .copilot-megamenu__col--links li {
+    margin-bottom: 10px;
+  }
+  .copilot-megamenu__col--links a {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0;
+    color: #979798;
+    text-decoration: none;
+  }
+  .copilot-megamenu__products {
+    display: flex;
+    gap: 20px;
+  }
+  .copilot-megamenu__product {
+    background: white;
+    padding: 0;
+    border-radius: 12px;
+    width: 180px;
+  }
+  .copilot-megamenu__product img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .copilot-megamenu__banner {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .copilot-megamenu__packs {
+    width: 100%;
+    max-width: 304px;
+    position: relative;
+    white-space: unset !important;
+    margin-top: 20px;
+  }
+  .copilot-megamenu__pack {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #1717171A;
+    white-space: unset !important;
+  }
+  .copilot-megamenu__product h4,
+  .copilot-megamenu__pack h4 {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #171717;
+    display: block;
+    width: 100%;
+    max-width: 277px;
+    white-space: unset !important;
+  }
+  .copilot-megamenu__product h4 {
+    margin-bottom: 0 !important;
+  }
+  .copilot-megamenu__product h4,
+  .copilot-megamenu__product span {
+    padding:  0 10px;;
+  }
+  .menu-list__list-item {
+      white-space: normal !important;
+  }
+  .copilot-megamenu__product .btn,
+  .copilot-megamenu__pack .btn {
+    justify-content: center !important;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 9px 14px;
+    width: 163px;
+  }
+  .copilot-tab-panel{
+    display:none;
+  }
+  .copilot-tab-panel.active{
+    display:block;
+  }
+  .copilot-tab-trigger.active{
+    color:#171717;
+    font-weight:600;
+  }
+  .copilot-tab-trigger:hover{
+    color:#171717;
+    font-weight:600;
+  }
+{% endstylesheet %}
+
+<div class="copilot-megamenu">
+
+  <div class="copilot-megamenu__container">
+
+    <!-- izquierda -->
+    <div class="copilot-megamenu__col copilot-megamenu__col--links">
+
+      <h3>{{ link.title }}</h3>
+
+      <ul class="copilot-megamenu__collections">
+
+        {% assign first = true %}
+
+        {% for child in link.links %}
+
+          {% unless child.title contains '#hide' %}
+
+            {% assign handle = child.url | split: '/collections/' | last | split: '?' | first %}
+
+            <li>
+
+              <a 
+                href="{{ child.url  }}"
+                class="copilot-tab-trigger"
+                data-tab="{{ handle }}"
+              >
+                {{ child.title | remove: '#hide' }}
+              </a>
+
+            </li>
+
+            {% assign first = false %}
+
+          {% endunless %}
+
+        {% endfor %}
+
+      </ul>
+
+    </div>
+
+    <!-- Columna centro -->
+    <div class="copilot-megamenu__col copilot-megamenu__col--products">
+
+      <h3>Destacados</h3>
+
+      <div class="copilot-megamenu__products">
+
+        {% for product in destacados limit: 2 %}
+
+          <div class="copilot-megamenu__product">
+
+            <img src="{{ product.featured_image | image_url: width: 300 }}">
+
+            <h4>{{ product.title }}</h4>
+
+              {% for option in product.options %}
+                {% assign opt_low = option | downcase | strip %}
+                {% if opt_low == 'cantidad' %}
+                  {% assign cantidad_option_index = forloop.index %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+
+              {% if cantidad_option_index %}
+                {% assign min_unit_price = nil %}
+                {% for variant in product.variants %}
+                  {% assign qty_value = nil %}
+                  {% if cantidad_option_index == 1 %}
+                    {% assign qty_value = variant.option1 | plus: 0 %}
+                  {% elsif cantidad_option_index == 2 %}
+                    {% assign qty_value = variant.option2 | plus: 0 %}
+                  {% elsif cantidad_option_index == 3 %}
+                    {% assign qty_value = variant.option3 | plus: 0 %}
+                  {% endif %}
+                  {% if qty_value > 0 %}
+                    {% assign unit_price = variant.price | times: 1.0 | divided_by: qty_value %}
+                    {% if min_unit_price == nil or unit_price < min_unit_price %}
+                      {% assign min_unit_price = unit_price %}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+                {% if min_unit_price %}
+                  <span class="card-product__unit-price price">Desde {{ min_unit_price | money }} c/u</span>
+                {% endif %}
+              {% endif %}
+
+            <a class="btn primary" href="{{ product.url }}">
+              Ver Producto
+            </a>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+      {% comment %} <div class="copilot-megamenu__tabs">
+
+        {% assign first = true %}
+
+        {% for child in link.links %}
+
+          
+          {% unless child.title contains '#hide' %}
+            
+          {% assign handle = child.url | split: '/collections/' | last | split: '?' | first %}
+          {% assign collection = collections[handle] %}
+          
+          <div 
+            class="copilot-tab-panel {% if first %}active{% endif %}"
+            data-tab="{{ handle }}"
+          >
+            <div class="copilot-tab-panel__header">
+              <h3>Destacados</h3> <a href="{{ collections[handle].url }}">Ver todos</a>
+            </div>
+
+            <div class="copilot-megamenu__products">
+
+              {% for product in collection.products limit: 3 %}
+
+                <div class="copilot-megamenu__product">
+
+                  <img src="{{ product.featured_image | image_url: width: 300 }}">
+
+                  <h4>{{ product.title }}</h4>
+
+                  <span>{{ product.price | money }}</span>
+
+                  <a class="btn primary" href="{{ product.url }}">
+                    Ver Producto
+                  </a>
+
+                </div>
+
+              {% endfor %}
+
+            </div>
+
+          </div>
+
+          {% assign first = false %}
+
+          {% endunless %}
+
+        {% endfor %}
+        
+      </div> {% endcomment %}
+
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="copilot-megamenu__col copilot-megamenu__col--products">
+
+      <h3>Packs de Regalo</h3>
+
+      <div class="copilot-megamenu__packs">
+
+          <div class="copilot-megamenu__pack">
+
+            <img src="https://cdn.shopify.com/s/files/1/0955/0731/7063/files/image21.png?v=1771368078" width="306" height="247">
+
+            <h4>Soluciones listas para los momentos clave de tu empresa.</h4>
+
+            <a href="/collections/packs-de-regalos" class="btn primary">Ver packs de regalo</a>
+
+          </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% comment %} {% javascript %}
+  document.querySelectorAll('.copilot-tab-trigger').forEach(btn => {
+
+    btn.addEventListener('click', function(e){
+
+      e.preventDefault();
+
+      const tab = this.dataset.tab;
+      const container = this.closest('.copilot-megamenu');
+
+      container.querySelectorAll('.copilot-tab-trigger').forEach(el=>{
+        el.classList.remove('active');
+      });
+
+      container.querySelectorAll('.copilot-tab-panel').forEach(el=>{
+        el.classList.remove('active');
+      });
+
+      this.classList.add('active');
+
+      container.querySelector(
+        '.copilot-tab-panel[data-tab="'+tab+'"]'
+      ).classList.add('active');
+
+    });
+
+  });
+{% endjavascript %} {% endcomment %}

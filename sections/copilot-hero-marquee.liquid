@@ -1,0 +1,533 @@
+{% style %}
+    .hero-marquee {
+        background: #9797981A;
+        padding: 0px 40px;
+    }
+
+    .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: center;
+    }
+
+    .hero-content {
+        margin: 0 0 0 auto;
+        max-width: 566px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 55px;
+        letter-spacing: 0;
+        margin: 0;
+    }
+
+    .hero-content h1 span {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 12px;
+    }
+
+    .hero-content h1 span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 28px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='218' height='28' viewBox='0 0 218 28' fill='none'%3E%3Cpath d='M4.27772 20.5149C4.27772 20.5149 55.2545 5.34986 48.207 12.4275C41.1595 19.5051 38.9896 22.2664 69.1875 13.7613C87.5327 8.59443 66.1625 18.7394 98.6523 17.0636C118.783 16.0253 154.782 6.92208 213.586 9.66058' stroke='%2306513F' stroke-width='2.68413' stroke-linecap='round' stroke-dasharray='0.13 0.13'/%3E%3Crect x='212.619' y='5.62231' width='3.70925' height='6.52745' transform='rotate(-1.17679 212.619 5.62231)' fill='%23F5F5F5'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        pointer-events: none;
+    }
+
+    .hero-content h1 span::after {
+        opacity: 0;
+        transform: translateY(6px);
+        animation: underlineIn 0.6s ease forwards;
+        animation-delay: 0.4s;
+    }
+
+    @keyframes underlineIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .hero-content p {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0;
+        color: #979798;
+        margin: 0;
+    }
+    .hero-buttons {
+        display: flex;
+        gap: 16px;
+    }
+    .btn.outline {
+        background-color: #fff;
+        border: 2px solid #ff7a00;
+        color: #ff7a00;
+    }
+    /* MARQUEE */
+    .hero-marquees {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 628px;
+    }
+
+    .marquee-column {
+    overflow: hidden;
+    position: relative;
+    }
+
+    .marquee-track {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    will-change: transform;
+    }
+
+    .marquee-item {
+    background: #f5f5f5;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    }
+
+    .marquee-item img {
+        width: 100%;
+        display: block;
+    }
+    .logos-marquee {
+        position: relative;
+    }
+    .marquee-item span {
+        display: block;
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 30px;
+        letter-spacing: 0px;
+        color: #fff;
+    }
+    .marquee-item__shadow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: all;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.0) 0%,
+            rgba(0, 0, 0, 0.15) 25%,
+            rgba(0, 0, 0, 0.35) 50%,
+            rgba(0, 0, 0, 0.65) 75%,
+            rgba(0, 0, 0, 0.85) 100%
+        );
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 20px;
+        height: 62px;
+        width: 100%;
+    }
+    .logos-swiper::before,
+    .logos-marquee::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 120px; /* ajusta el ancho del fade */
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* LEFT */
+    .logos-swiper::before {
+        left: 0;
+        background: linear-gradient(
+            to right,
+            rgba(255,255,255,1),
+            rgba(255,255,255,0)
+        );
+    }
+
+    /* RIGHT */
+    .logos-marquee::after {
+        right: 0;
+        background: linear-gradient(
+            to left,
+            rgba(255,255,255,1),
+            rgba(255,255,255,0)
+        );
+    }
+    @media (max-width: 768px) {
+        .hero-marquee {
+            background: #fff;
+            padding: 20px;
+        }
+        .hero-inner {
+            grid-template-columns: 1fr;
+            gap: 0px;
+        }
+        .hero-content h1 {
+            font-size: 30px;
+            line-height: 35px;
+            letter-spacing: 0;
+            text-align: center;
+        }
+        .hero-marquees {
+            display: none;
+        }
+        .hero-content p {
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+        }
+        .hero-buttons {
+            flex-direction: column;
+        }
+        .hero-buttons .btn {
+            position: relative;
+            text-align: center;
+            font-size: 16px;
+            line-height: 32px;
+            justify-content: center;
+        }
+        .hero-buttons .btn svg {
+            position: absolute;
+            right: 30px;
+        } 
+    }
+{% endstyle %}
+
+<section class="hero-marquee">
+  <div class="hero-inner">
+
+    <!-- LEFT CONTENT -->
+    <div class="hero-content">
+      <h1>{{ section.settings.title }}</h1>
+      <p>{{ section.settings.subtitle }}</p>
+
+      <div class="hero-buttons">
+        {% if section.settings.btn1_text != blank %}
+          <a href="{{ section.settings.btn1_link }}" class="btn primary">
+            {{ section.settings.btn1_text }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="white"/><path d="M4.99019 10.2895H14.951M14.951 10.2895L11.0773 6.41595M14.951 10.2895L11.0773 14.1632" stroke="#FE7D00" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        {% endif %}
+
+        {% if section.settings.btn2_text != blank %}
+          <a href="{{ section.settings.btn2_link }}" class="btn outline">
+            {{ section.settings.btn2_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- RIGHT MARQUEES -->
+    <div class="hero-marquees">
+
+      <!-- Column UP -->
+      <div class="marquee-column">
+        <div class="marquee-track" data-direction="up">
+            <div class="marquee-item">
+                <img src="{{ 'corpo-1.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['textil-premium'].url }}">
+                    <span>Textil premium</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-2.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['oficina'].url }}">
+                    <span>Oficina</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-3.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['electronica-util'].url }}">
+                     <span>Electrónica útil</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-1.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['textil-premium'].url }}">
+                    <span>Textil premium</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-2.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['oficina'].url }}">
+                    <span>Oficina</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-3.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['electronica-util'].url }}">
+                     <span>Electrónica útil</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-1.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['textil-premium'].url }}">
+                    <span>Textil premium</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-2.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['oficina'].url }}">
+                    <span>Oficina</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-3.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['electronica-util'].url }}">
+                     <span>Electrónica útil</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Column DOWN -->
+      <div class="marquee-column">
+        <div class="marquee-track" data-direction="down">
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-4.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['accesorios-corporativos'].url }}">
+                    <span>Accesorios Corporativos</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-5.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['drinkware'].url }}">
+                     <span>Drinkware</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-6.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['bolsas'].url }}">
+                    <span>Bolsas</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-4.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['accesorios-corporativos'].url }}">
+                    <span>Accesorios Corporativos</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-5.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['drinkware'].url }}">
+                     <span>Drinkware</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-6.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['bolsas'].url }}">
+                    <span>Bolsas</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-4.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['accesorios-corporativos'].url }}">
+                    <span>Accesorios Corporativos</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-5.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['drinkware'].url }}">
+                     <span>Drinkware</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="marquee-item">
+                <img src="{{ 'corpo-6.webp' | asset_url }}" loading="lazy" width="236" height="306" alt="Corpo producto">
+                <a class="marquee-item__shadow" href="{{ collections['bolsas'].url }}">
+                    <span>Bolsas</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9.98038" cy="9.98038" r="9.98038" fill="#FE7D00"/><path d="M4.99017 10.2895H14.9509M14.9509 10.2895L11.0773 6.41595M14.9509 10.2895L11.0773 14.1632" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth > 1024) {
+            document.querySelectorAll('.marquee-track').forEach(track => {
+                const speed = 0.6;
+                const direction = track.dataset.direction;
+                const originalHTML = track.innerHTML;
+
+                let y = 0;
+                let loopHeight = 0;
+
+                function setup() {
+                    // Duplicar hasta cubrir 3x el alto visible
+                    while (track.scrollHeight < track.parentElement.offsetHeight * 3) {
+                        track.innerHTML += originalHTML;
+                    }
+                }
+                function calculate() {
+                    loopHeight = track.scrollHeight / 2;
+
+                    // Posición inicial correcta
+                    if (direction === 'down') {
+                        y = -loopHeight;
+                    } else {
+                        y = 0;
+                    }
+                }
+                function animateUp() {
+                    y -= speed;
+
+                    if (y <= -loopHeight) {
+                        y += loopHeight;   // 🔥 wrap circular estable
+                    }
+
+                    track.style.transform = `translateY(${y}px)`;
+                    requestAnimationFrame(animateUp);
+                }
+                function animateDown() {
+                    y += speed;
+
+                    if (y >= 0) {
+                        y -= loopHeight;   // 🔥 wrap circular estable
+                    }
+
+                    track.style.transform = `translateY(${y}px)`;
+                    requestAnimationFrame(animateDown);
+                }
+                // Init
+                setup();
+                calculate();
+
+                if (direction === 'up') {
+                    animateUp();
+                } else {
+                    animateDown();
+                }
+                // Recalcular en resize
+                window.addEventListener('resize', () => {
+                    calculate();
+                });
+
+            });
+        }
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Hero Marquee Copilot",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Regalos corporativos para marcas premium"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Un catálogo de productos premium, útiles y coherentes con tu marca."
+    },
+    {
+      "type": "text",
+      "id": "btn1_text",
+      "label": "Texto Botón Principal",
+      "default": "Explorar catálogo"
+    },
+    {
+      "type": "url",
+      "id": "btn1_link",
+      "label": "Link Botón Principal"
+    },
+    {
+      "type": "text",
+      "id": "btn2_text",
+      "label": "Texto Botón Secundario",
+      "default": "Hablar con un experto"
+    },
+    {
+      "type": "url",
+      "id": "btn2_link",
+      "label": "Link Botón Secundario"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item_left",
+      "name": "Item Columna Izquierda",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Imagen" },
+        { "type": "text", "id": "label", "label": "Texto" }
+      ]
+    },
+    {
+      "type": "item_right",
+      "name": "Item Columna Derecha",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Imagen" },
+        { "type": "text", "id": "label", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Marquee Copilot"
+    }
+  ]
+}
+{% endschema %}

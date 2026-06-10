@@ -1,0 +1,111 @@
+{% comment %}
+  footer-with-whatsapp.liquid
+  ─────────────────────────────────────────────────────────────
+  Section de footer que incluye el snippet del botón WhatsApp.
+  Podés agregar este schema a tu footer existente o usar este
+  archivo como section independiente.
+  ─────────────────────────────────────────────────────────────
+  Para usarlo en un footer ya existente, copia únicamente el
+  bloque {% schema %} (la parte de whatsapp_*) dentro de tu
+  section footer.liquid, y agrega la línea:
+      {% render 'whatsapp-button' %}
+  justo antes del </footer> o al final del archivo.
+{% endcomment %}
+
+{% render 'copilot-whatsapp-btn' %}
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "💬 Botón de WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_phone",
+      "label": "Número de teléfono",
+      "info": "Incluí el código de país sin '+' ni espacios. Ej: 5491123456789",
+      "placeholder": "5491123456789"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "Mensaje predefinido (opcional)",
+      "placeholder": "Hola! Me gustaría consultar sobre..."
+    },
+    {
+      "type": "select",
+      "id": "whatsapp_position",
+      "label": "Posición del botón",
+      "options": [
+        { "value": "right", "label": "Derecha" },
+        { "value": "left",  "label": "Izquierda" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "whatsapp_size",
+      "label": "Tamaño del botón (px)",
+      "min": 40,
+      "max": 90,
+      "step": 2,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "whatsapp_offset_x",
+      "label": "Separación horizontal desde el borde (px)",
+      "min": 8,
+      "max": 80,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "whatsapp_offset_y",
+      "label": "Separación vertical desde abajo (px)",
+      "min": 8,
+      "max": 120,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Tooltip"
+    },
+    {
+      "type": "checkbox",
+      "id": "whatsapp_show_tooltip",
+      "label": "Mostrar tooltip al hacer hover",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_tooltip",
+      "label": "Texto del tooltip",
+      "default": "¡Hablemos!"
+    },
+    {
+      "type": "header",
+      "content": "Animación"
+    },
+    {
+      "type": "checkbox",
+      "id": "whatsapp_pulse",
+      "label": "Activar animación de pulso",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer con WhatsApp"
+    }
+  ]
+}
+{% endschema %}

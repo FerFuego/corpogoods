@@ -1,0 +1,304 @@
+{% style %}
+    .copilot-section-reviews {
+        font-family: Poppins, sans-serif;
+        max-width: 1200px;
+        margin: 120px auto;
+        padding: 0 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .copilot-section-reviews__title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #171717;
+        margin-bottom: 80px;
+        line-height: 1.2;
+        margin: 0 auto;
+        width: 575px;
+    }
+
+   .copilot-section-reviews__title span {
+        position: relative;
+    }
+
+    .copilot-section-reviews__title span::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        bottom: -7px;
+        background-image: url(https://cdn.shopify.com/s/files/1/0955/0731/7063/files/sub.svg?v=1769623855);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 20px;
+        width: 172px;
+    }
+
+    .reviews-slider {
+        position: relative;
+    }
+
+    .review-card {
+        padding: 0 30px;
+    }
+
+    .review-card__brand {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #b5b5b5;
+        margin-bottom: 10px;
+    }
+
+    .review-card__author {
+        font-family: Poppins;
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 26px;
+        letter-spacing: 0;
+        text-align: center;
+        margin-bottom: 18px;
+        color: #171717;
+    }
+
+    .review-card__text {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.08px;
+        text-align: center;
+        line-height: 1.7;
+        max-width: 320px;
+        margin: 0 auto 20px;
+        color: #979798;
+    }
+
+    .review-card__stars {
+        color: #979798;
+        font-size: 16px;
+    }
+
+    /* Slick */
+    .copilot-section-reviews .slick-dots {
+        bottom: -50px;
+    }
+
+    .copilot-section-reviews .slick-arrow {
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+    }
+    .review-card__inner {
+      display: flex;
+      flex-direction: column;
+    }
+    /* Slick list debe ocultar overflow */
+    .reviews-slider .slick-list {
+      overflow: hidden;
+    }
+    /* Track en flex para evitar bugs */
+    .reviews-slider .slick-track {
+      display: flex !important;
+    }
+    /* Slide base */
+    .reviews-slider .slick-slide {
+      height: auto;
+      display: flex !important;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    /* Card spacing correcto */
+    .review-card {
+      padding: 0 15px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .copilot-section-reviews {
+          padding: 0 20px;
+          margin: 40px 0;
+        }
+        .copilot-section-reviews__title {
+            font-size: 25px;
+            margin-bottom: 0px;
+            line-height: 30px;
+            text-align: center;
+            max-width: 100%;
+            width: 100%;
+        }
+        .review-card__brand,
+        .review-card__author {
+          margin-bottom: 0;
+        }
+        
+        /* separación visual entre slides */
+        .reviews-slider .slick-slide > div {
+          margin: 0 10px;
+          padding: 0 20px;
+        }
+        /* arregla el track */
+        .js-reviews-slider .slick-track {
+          display: flex;
+        }
+        .js-reviews-slider .slick-list{
+          padding: 0 !important;
+          overflow: hidden;
+          margin: 0 -10px;
+        }
+        .js-reviews-slider .slick-slide {
+          margin: 0 10px;
+          height: auto;
+        }
+        .js-reviews-slider .slick-arrows {
+          position: absolute;
+          top: 35%;
+        }
+        .js-reviews-slider .slick-prev {
+          left: -8px;
+          z-index: 2;
+        }
+        .js-reviews-slider .slick-next {
+          right: -8px;
+          z-index: 2;
+        }
+    }
+{% endstyle %}
+
+<section class="copilot-section-reviews">
+
+    <h2 class="copilot-section-reviews__title">
+      {{ section.settings.title }}
+    </h2>
+
+    <div class="reviews-slider js-reviews-slider">
+      {% for block in section.blocks %}
+        <div class="review-card" {{ block.shopify_attributes }}>
+          <div class="review-card__inner">
+            <div class="review-card__brand">
+              {{ block.settings.brand }}
+            </div>
+
+            <div class="review-card__author">
+              {{ block.settings.author }}
+            </div>
+
+            <div class="review-card__text">
+              “{{ block.settings.text }}”
+            </div>
+
+            <div class="review-card__stars">
+              {% assign rating = block.settings.rating | plus: 0 %}
+              {% for i in (1..5) %}
+                {% if i <= rating %}
+                  ★
+                {% else %}
+                  ☆
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const slider = document.querySelector('.js-reviews-slider');
+
+  if (!slider) return;
+
+  function initSlider() {
+      if (!slider.classList.contains('slick-initialized')) {
+        jQuery(slider).slick({
+          slidesToShow: 1,
+          arrows: true,
+          dots: false,
+          infinite: false,
+          adaptiveHeight: true,
+          mobileFirst: true,
+          centerMode: false,
+          variableWidth: false,
+          prevArrow: '<svg xmlns="http://www.w3.org/2000/svg" class="slick-arrows slick-prev" width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" transform="rotate(90 18 18)" fill="#FE7D00"/><path d="M24 18.6469L12.8063 18.6469M12.8063 18.6469L17.1594 23M12.8063 18.6469L17.1594 14.2938" stroke="white" stroke-width="1.59911" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+		      nextArrow: '<svg xmlns="http://www.w3.org/2000/svg" class="slick-arrows slick-next" width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" transform="rotate(-90 18 18)" fill="#FE7D00"/><path d="M12 18.3531L23.1937 18.3531M23.1937 18.3531L18.8406 14M23.1937 18.3531L18.8406 22.7062" stroke="white" stroke-width="1.59911" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          responsive: [{
+            breakpoint: 640,
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3
+            }
+          }]
+        });
+      }
+  }
+
+  initSlider();
+  window.addEventListener('resize', initSlider);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Copilot Reviews Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Esto es lo que dicen quienes ya regalan con nosotros"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "brand",
+          "label": "Marca / Empresa",
+          "default": "HARRY'S"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Autor",
+          "default": "Talia Salomón"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texto de la reseña",
+          "default": "Nos presentó un producto de nueva calidad. ¡Esperamos trabajar con ellos en el futuro!"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Copilot Reviews Slider"
+    }
+  ]
+}
+{% endschema %}

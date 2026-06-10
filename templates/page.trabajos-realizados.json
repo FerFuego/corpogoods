@@ -1,0 +1,621 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "copilot_hero_marquee_UTiNyz": {
+      "type": "copilot-hero-marquee",
+      "name": "Hero Marquee Copilot",
+      "settings": {
+        "title": "Marcas que confían en Corpogoods para representarse",
+        "subtitle": "Regalo corporativo premium, trabajado con criterio de marca y atención al detalle.",
+        "btn1_text": "Explorar catálogo",
+        "btn1_link": "shopify://collections/todos",
+        "btn2_text": "Hablar con un experto",
+        "btn2_link": "#contacto"
+      }
+    },
+    "copilot_logos_marquee_Hbpdwa": {
+      "type": "copilot-logos-marquee",
+      "blocks": {
+        "logo_GX7X8P": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_2_8c4a8ea6-c447-4fd9-b13f-f3503498d700.png"
+          }
+        },
+        "logo_dgeqRV": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/9cfa988a7ad81b03b1f3150450ba045b3695a1ae.png"
+          }
+        },
+        "logo_nCxBeb": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/rayo-vallecano.png"
+          }
+        },
+        "logo_rGNe8M": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/panama.png"
+          }
+        },
+        "logo_HPajQU": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_11_50fba4ad-6f0f-4034-b998-eb6205a50316.png"
+          }
+        },
+        "logo_cikab7": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_9_0119d0d6-0a39-48a9-b940-b90eaa883287.png"
+          }
+        },
+        "logo_xHeYXc": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_6.png"
+          }
+        },
+        "logo_nztyFd": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/ace49a510e8cd8f6a90fc528bb832094f982a27d.png"
+          }
+        },
+        "logo_xpTUR6": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_22.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_GX7X8P",
+        "logo_dgeqRV",
+        "logo_nCxBeb",
+        "logo_rGNe8M",
+        "logo_HPajQU",
+        "logo_cikab7",
+        "logo_xHeYXc",
+        "logo_nztyFd",
+        "logo_xpTUR6"
+      ],
+      "name": "Copilot Logos Marquee",
+      "settings": {
+        "text": "<strong>45 años de experiencia</strong> en\nel regalo promocional y publicitario"
+      }
+    },
+    "copilot_case_slider_XQR7Cf": {
+      "type": "copilot-case-slider",
+      "blocks": {
+        "case_X8wgew": {
+          "type": "case",
+          "settings": {
+            "orientation": "right",
+            "title": "Mercedes Benz",
+            "text": "Desarrollamos la línea completa de ropa laboral corporativa para concesionarios del sur de España, produciendo pantalones técnicos, sudaderas, chaquetas, forros polares y chalecos reflectantes para recepcionistas de automóviles. Todas las prendas se fabrican con altos estándares de calidad, resistencia y confort, integrando la identidad visual de la marca mediante bordados, serigrafía y personalizaciones específicas.",
+            "image_1": "shopify://shop_images/mb-1.webp",
+            "image_2": "shopify://shop_images/mb-2.webp",
+            "image_3": "shopify://shop_images/mb-3.webp",
+            "image_4": "shopify://shop_images/mb-4.webp"
+          }
+        },
+        "case_pV9k8d": {
+          "type": "case",
+          "settings": {
+            "orientation": "left",
+            "title": "Philip Morris",
+            "text": "Desarrollamos artículos promocionales para campañas comerciales como abanicos, bolsas, botellas, llaveros, carpetas y memorias USB. También gestionamos la distribución de encendedores Clipper y producimos encendedores y fundas, superando los 30 millones de unidades, además de otros productos de merchandising.",
+            "image_1": "shopify://shop_images/pm-1.webp",
+            "image_2": "shopify://shop_images/pm-2.webp",
+            "image_3": "shopify://shop_images/pm-3.webp"
+          }
+        },
+        "case_NEYgjK": {
+          "type": "case",
+          "settings": {
+            "orientation": "right",
+            "title": "Panama Jack",
+            "text": "Gestionamos el diseño, fabricación y suministro del vestuario oficial del programa televisivo Supervivientes, produciendo camisetas, pantalones, forros polares y chubasqueros con materiales técnicos adaptados a condiciones extremas, garantizando resistencia, comodidad y correcta visibilidad de la marca.",
+            "image_1": "shopify://shop_images/go-1.webp",
+            "image_2": "shopify://shop_images/go-2.webp",
+            "image_3": "shopify://shop_images/go-3.webp"
+          }
+        },
+        "case_AY6XKT": {
+          "type": "case",
+          "settings": {
+            "orientation": "left",
+            "title": "TUV SUD",
+            "text": "Suministramos merchandising corporativo y desarrollamos una plataforma digital personalizada desde la que sus equipos pueden realizar pedidos directos, optimizando la gestión de stock, trazabilidad y coherencia de marca en sus delegaciones.",
+            "image_1": "shopify://shop_images/tuv-1.webp",
+            "image_2": "shopify://shop_images/tuv-2.webp",
+            "image_3": "shopify://shop_images/tuv-3.webp",
+            "image_4": "shopify://shop_images/tuv-4.webp",
+            "image_5": "shopify://shop_images/tuv-5.webp"
+          }
+        }
+      },
+      "block_order": [
+        "case_X8wgew",
+        "case_pV9k8d",
+        "case_NEYgjK",
+        "case_AY6XKT"
+      ],
+      "name": "Copilot - Case Slider",
+      "settings": {}
+    },
+    "copilot_flex_layout_NJwYFC": {
+      "type": "copilot-flex-layout",
+      "blocks": {
+        "container_7t4d7V": {
+          "type": "container",
+          "settings": {
+            "container_name": "tp-sub",
+            "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "523px",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0",
+            "gap": "0"
+          }
+        },
+        "richtext_VFNX6T": {
+          "type": "richtext",
+          "settings": {
+            "parent_container_name": "tp-sub",
+            "text": "<p><strong>Aquí no improvisamos. Aquí se trabaja bien.</strong></p>",
+            "color": "#171717",
+            "font_size": "30px",
+            "font_weight": "400",
+            "line_height": "1.2em",
+            "text_align": "center",
+            "margin": "0 0 10px",
+            "padding": "0"
+          }
+        },
+        "container_hbLBBD": {
+          "type": "container",
+          "settings": {
+            "container_name": "tp-page",
+            "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "685px",
+            "height": "auto",
+            "margin": "0 0 20px",
+            "padding": "0",
+            "gap": "0"
+          }
+        },
+        "text_ejE997": {
+          "type": "text",
+          "settings": {
+            "parent_container_name": "tp-page",
+            "text": "No es solo marcar un producto.  Es cuidar cómo una marca se representa.",
+            "color": "#979798",
+            "font_size": "16px",
+            "font_weight": "400",
+            "line_height": "1.2em",
+            "text_align": "center",
+            "margin": "0",
+            "padding": "0"
+          }
+        },
+        "container_73BrMm": {
+          "type": "container",
+          "settings": {
+            "container_name": "tp-2",
+            "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0",
+            "gap": "0"
+          }
+        },
+        "video_xzmXGU": {
+          "type": "video",
+          "settings": {
+            "parent_container_name": "tp-2",
+            "video": "shopify://files/videos/CORPOGOODS VIDEO1_v2.mp4",
+            "video_url": "",
+            "cover_image": "shopify://shop_images/Captura_de_pantalla_2026-03-26_a_la_s_5.22.15_p._m..png",
+            "enable_video_looping": false,
+            "width": "825px",
+            "height": "516px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "15px"
+          }
+        }
+      },
+      "block_order": [
+        "container_7t4d7V",
+        "richtext_VFNX6T",
+        "container_hbLBBD",
+        "text_ejE997",
+        "container_73BrMm",
+        "video_xzmXGU"
+      ],
+      "name": "Copilot - Flexible Container",
+      "settings": {
+        "layout": "flex",
+        "flex_direction": "column",
+        "justify_content": "center",
+        "align_items": "center",
+        "background_color": "#ffffff",
+        "border": "0",
+        "width": "100%",
+        "height": "auto",
+        "margin": "100px 0 0",
+        "padding": "0",
+        "column_count": 3,
+        "rows_count": 3,
+        "gap": "0",
+        "custom_class": "copilot-video-trabajamos"
+      }
+    },
+    "section_UCPQtY": {
+      "type": "section",
+      "blocks": {
+        "text_yPfWLf": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>Preguntas frecuentes</h3>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_zCPG6a": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_6mGhY7": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Hay pedido mínimo?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_MdDBqg": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>El pedido mínimo depende de cada producto. Trabajamos tanto proyectos pequeños como producciones corporativas de mayor volumen. </p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_MdDBqg"
+              ]
+            },
+            "accordion_row_pyxppU": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Qué plazos de entrega manejáis?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_CzBbUE": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>El plazo habitual de producción y entrega es de <strong>7 a 10 días hábiles</strong> desde la confirmación del pedido.<br/> Si lo necesitas antes, también podemos gestionar <strong>pedidos urgentes</strong> según disponibilidad.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_CzBbUE"
+              ]
+            },
+            "accordion_row_xYh4fb": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Puedo recibir una muestra antes de producir?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_EAmXqM": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Sí. Podemos enviar muestras de producto <strong>previo pago</strong>. Si posteriormente confirmas el pedido, <strong>el coste de la muestra se descuenta del pedido final</strong>.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_EAmXqM"
+              ]
+            },
+            "accordion_row_4NxJRw": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Puedo pedir asesoramiento?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_TdBK6b": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Sí. Nuestro equipo te ayuda a elegir el regalo corporativo más adecuado según tu marca, el contexto y el número de unidades. Nuestro objetivo es que tomes una buena decisión, no simplemente vender más productos.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_TdBK6b"
+              ]
+            },
+            "accordion_row_WDi7Hp": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Personalizáis todos los productos?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_MxdrNE": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>La mayoría de nuestros productos permiten personalización con tu marca. En cada caso te asesoramos sobre la técnica y el diseño más adecuado para que el resultado sea limpio, duradero y coherente con tu identidad de marca.</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_MxdrNE"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_6mGhY7",
+            "accordion_row_pyxppU",
+            "accordion_row_xYh4fb",
+            "accordion_row_4NxJRw",
+            "accordion_row_WDi7Hp"
+          ]
+        }
+      },
+      "block_order": [
+        "text_yPfWLf",
+        "accordion_zCPG6a"
+      ],
+      "custom_css": [
+        ".details-content p {width: 100%; max-width: 100%; padding: 0 40px;}"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "custom_class": "copilot-custom-faqs",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 100,
+        "padding-block-end": 0
+      }
+    },
+    "copilot_contact_form_cQFJkK": {
+      "type": "copilot-contact-form",
+      "name": "Copilot Contact Form",
+      "settings": {
+        "image": "shopify://shop_images/form-cont.webp",
+        "title": "Hablemos de cómo representar bien tu marca",
+        "text": "Cuéntanos el contexto y te ayudamos a elegir un regalo corporativo con criterio, coherente y a la altura de tu empresa.",
+        "button_text": "Hablar con un experto"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "copilot_hero_marquee_UTiNyz",
+    "copilot_logos_marquee_Hbpdwa",
+    "copilot_case_slider_XQR7Cf",
+    "copilot_flex_layout_NJwYFC",
+    "section_UCPQtY",
+    "copilot_contact_form_cQFJkK"
+  ]
+}

@@ -1,0 +1,1165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.btn {
+    padding: 14px 21px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.btn.primary {
+    background: #FE7D00;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    transform: translateX(0px);
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+.btn.primary svg {
+    transform: translateX(0px);
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+.btn:hover {
+   border-color: #171717 !important;
+   color: #171717 !important;
+}
+.copilot-product-page .add-to-cart-button:hover,
+.copilot-custom-btn-purchase:hover,
+.copilot-featured-gallery__button:hover,
+.submit-button:hover,
+.contact-form__button:hover,
+.btn.primary:hover {
+    background-color: #171717 !important;
+    color: #fff !important;
+}
+.btn.primary:hover svg {
+    transform: translateX(6px);
+}
+
+.d-none {
+    display: none !important;
+}
+.copilot-product-slider {
+    width: 100%;
+    max-width: 1120px;
+    padding: 20px 0;
+    margin: 80px auto;
+
+    slideshow-slides {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    slideshow-arrows .slideshow-control {
+        background-color: #FE7D00 !important;
+    }
+
+    rte-formatter {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.98px;
+        text-align: center;
+        color: #979798;
+    }
+
+    div.text-block--align-center p {
+        font-family: Poppins;
+        font-weight: 700 !important;
+        font-size: 30px !important;
+        line-height: 40px !important;
+        letter-spacing: 0 !important;
+        text-align: center;
+        color: #171717 !important;
+        width: 100%;
+        max-width: 523px;
+        margin: 0 auto;
+    }
+
+    slideshow-slide {
+        border-radius: 15px;
+    }
+}
+slideshow-arrows .slideshow-control {
+    background-color: #FE7D00 !important;
+    filter: invert(1);
+    border-radius: 50px;
+    width: 44px;
+    padding: 0 !important;
+    align-items: center;
+    justify-content: center;
+}
+.copilot-home-page slideshow-arrows .slideshow-control,
+.copilot-product-page slideshow-arrows .slideshow-control {
+    filter: invert(0) !important;
+}
+.announcement-bar slideshow-arrows .slideshow-control {
+    background-color: transparent !important;
+}
+.product-card {
+    p {
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: #171717 !important;
+    }
+    .price {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 16px !important;
+        line-height: 26px !important;
+        letter-spacing: 0px;
+        color: #171717;
+    }
+    [ref="priceContainer"] {
+      display: none;
+    }
+}
+
+.iva-switch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+    position: relative;
+left: 76%;
+    transform: translateY(-237px);
+}
+
+.iva-toggle {
+  position: relative;
+  width: 50px;
+  height: 26px;
+}
+
+.iva-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.iva-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #eee;
+  border-radius: 50px;
+  transition: 0.3s;
+  border: 2px solid #ff6a00;
+}
+
+.iva-toggle .slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ff6a00;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* ACTIVO */
+.iva-toggle input:checked + .slider {
+  background-color: #fff3e8;
+}
+
+.iva-toggle input:checked + .slider::before {
+  transform: translate(22px, -50%);
+}
+
+/* TEXTO */
+.iva-label {
+  font-weight: 600;
+  color: #ff6a00;
+  font-size: 18px;
+}
+
+summary .svg-wrapper {
+    height: 20px;
+    width: 20px;
+}
+
+.copilot-category-body {
+    h3 {
+        height: 45px;
+        text-align: center;
+    }
+}
+
+.copilot-custom-faqs h3 {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #171717;
+}
+.copilot-custom-faqs .custom-section-content {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 835px;
+}
+.copilot-custom-faqs .accordion .details__header {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0;
+    color: #171717;
+    padding: 14px 20px;
+}
+.accordion--dividers accordion-custom .details {
+    border-top: 1px solid #171717;
+    border-bottom: 1px solid #171717;
+}
+.accordion--dividers accordion-custom:first-child .details {
+    border-top: 1px solid #FFF !important;
+}
+.accordion--dividers accordion-custom:last-child .details {
+    border-bottom: 1px solid #171717 !important;
+}
+
+footer .footer-content {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1230px;
+}
+footer .footer-content .group-block:nth-child(1) {
+    flex: none;
+    width: 500px;
+}
+footer .footer-content .group-block:nth-child(4) {
+    max-width: 124px;
+}
+footer .footer-content .group-block:nth-child(4) img {
+    max-width: 124px;
+    margin: 0;
+}
+.copilot-custom-btn-purchase {
+    background-color: #FE7D00;
+    font-family: Poppins;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 26px !important;
+    font-family: Poppins;
+    letter-spacing: 0px;
+    text-align: center;
+    letter-spacing: 0px;
+    border-radius: 15px;
+    color: #FFF;
+    margin: 13px 0 0;
+    flex: none;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+.product-card .upload-container {
+    display: none !important;
+}
+.product-card__content .buy-buttons-block {
+    order: 3;
+}
+.copilot-custom-min-purchase {
+    font-family: Poppins;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 14px !important;
+    letter-spacing: 0px;
+    color: #171717;
+    margin: 0;
+}
+.copilot-product-page .add-to-cart-button {
+    background-color: #FE7D00 !important;
+}
+.copilot-product-page #shopify-section-template--27594451288391__main {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+.copilot-product-page h1 {
+    font-family: Poppins;
+    font-weight: 700 !important;
+    font-size: 30px !important;
+    line-height: 40px !important;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #171717;
+}
+.footer-content h5,
+.copilot-product-page h5 strong,
+.copilot-product-page h5 {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 0;
+    color: #171717;
+    margin-bottom: 10px;
+}
+.footer-content h5 strong,
+.copilot-product-page h5 strong {
+    color: #fff !important;
+}
+.product-details ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 15px;
+}
+.product-details ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.98px;
+    color: #979798;
+}
+.product-details ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0955/0731/7063/files/check.svg?v=1769711355');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.variant-picker__form {
+    margin-top: -5px;
+}
+.divider__line {
+    border-bottom: 1px solid #979798 !important;
+}
+.variant-picker__form fieldset {
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #979798;
+    margin: 0 0 20px 0;
+}
+.variant-option__button-label:has(:checked),
+.variant-option__button-label:has(:checked):not(.variant-option__button-label--has-swatch,
+:has([data-option-available=false])):before {
+  border-color: #FE7D00 !important;
+  color: #FE7D00 !important;
+  background-color: #fff;
+}
+
+.variant-option__button-label:not(.variant-option__button-label--has-swatch):before,
+.variant-option__button-label:has([data-current-checked=true]):first-of-type~label:last-of-type:not(.variant-option__button-label--has-swatch) {
+    border-color: #171717 !important;
+    color: #171717 !important;
+    background-color: #fff;
+}
+
+.copilot-start-now__body__copiproduct {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+    .copilot-start-now__item {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        background-color: #9797981A;
+        border-radius: 15px;
+        padding: 30px 22px;
+        width: 100%;
+    }
+    .copilot-start-now__item svg {
+        transform: translateX(0px);
+        position: relative;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transition: all 500ms ease;
+        -o-transition: all 500ms ease;
+        transition: all 500ms ease;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+        flex: none;
+    }
+
+    .copilot-start-now__item:hover svg {
+        transform: translateX(6px);
+    }
+    .copilot-start-now__item img {
+        display: block;
+        flex: none;
+        height: 46px;
+        width: auto;
+    }
+    .copilot-start-now__item strong {
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0;
+        color: #171717;
+    }
+    .copilot-start-now__item p {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0px;
+        color: #171717;
+        margin: 0;
+    }
+    .copilot-start-now__item svg {
+        margin: 0 0 0 auto;
+    }
+}
+
+.copilot-list-shipping {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr 0.8fr;
+    grid-gap: 10px;
+    padding-left: 20px;
+}
+.copilot-list-shipping__item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: #979798;
+}
+.copilot-list-shipping__item:nth-child(1) img {
+    height: auto;
+    width: 47px;
+}
+.copilot-list-shipping__item:nth-child(2) img {
+    height: auto;
+    width: 60px;
+}
+.copilot-list-shipping__item:nth-child(3) img {
+    height: auto;
+    width: 48px;
+}
+.copilot-product-page  .logos-marquee {
+    background-color: #F5F5F5;
+    max-width: 100%;
+}
+.copilot-product-page .logos-inner {
+    grid-template-columns: 1fr;
+}
+.copilot-product-page .logos-text {
+    margin: 0 auto;
+    max-width: 800px;
+}
+.copilot-product-page .logos-text p,
+.copilot-product-page .logos-text strong {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #171717;
+}
+
+
+.copilot-breadcrumb {
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: #666;
+  width: 100%;
+  max-width: 1020px;
+  margin: 40px auto;
+}
+
+.copilot-breadcrumb a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.copilot-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.copilot-breadcrumb-separator {
+  margin: 0 6px;
+}
+
+.copilot-breadcrumb-current {
+  font-weight: 500;
+  color: #000;
+}
+.swiper-pagination-bullet {
+    height: 12px;
+    width: 12px;
+}
+.swiper-pagination-bullet-active {
+    background-color: #FE7D00;
+}
+.copilot-category-header h3 {
+    text-align: center;
+}
+.copilot-catalog-page .collection-wrapper {
+    grid-template-columns: 3;
+    width: 960px;
+    margin: 0 auto;
+}
+.copilot-catalog-page .copilot-custom-faqs .section-content-wrapper {
+    padding: 0;
+    margin: 100px 0 0;
+}
+.copilot-catalog-page .logos-marquee {
+    background-color: #F5F5F5;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+}
+.copilot-catalog-page .logos-marquee .logos-inner {
+    grid-template-columns: 1fr;
+}
+.copilot-catalog-page .logos-marquee .logos-inner .logos-text {
+    margin: 0 auto;
+    max-width: 800px;
+}
+.copilot-catalog-page .logos-marquee .logos-inner .logos-text p {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0;
+    text-align: center;
+}
+.copilot-catalog-page .custom-section-content h1 {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #171717;
+}
+.copilot-breadcrumb-current {
+    font-weight: 700;
+}
+#left h1,
+#left h2 {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 45px !important;
+    line-height: 55px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #171717;
+}
+#right .nested-block--contact_form {
+    width: 100%;
+}
+#right .contact-form__form-row input,
+#right .contact-form__form-row select,
+#right textarea {
+    padding: 5px 0 10px 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #979798;
+}
+#right .submit-button {
+    min-width: max-content;
+    background: #FE7D00;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px 20px;
+}
+
+#left ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#left ul li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+}
+
+#left ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+
+  width: 13px;
+  height: 13px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13' fill='none'%3E%3Ccircle cx='6.5' cy='6.5' r='6.25' fill='white' stroke='%23FE7D00' stroke-width='0.5'/%3E%3Cpath d='M8.83887 5.12189C8.88483 5.14221 8.91604 5.17339 8.93652 5.20197L8.95996 5.242C8.98174 5.28915 8.99519 5.35781 8.96484 5.44122L8.95801 5.46271L8.94141 5.47833L6.08984 8.31232L6.08496 8.3172L6.01953 8.24103L6.08398 8.3172C6.01235 8.3782 5.87725 8.43701 5.74707 8.34943L5.73633 8.34259L5.72852 8.33282C5.61318 8.20343 5.48799 8.07752 5.3584 7.95392L4.96094 7.58868C4.66524 7.32112 4.37968 7.0617 4.15625 6.79181C4.10794 6.73363 4.07135 6.6688 4.06152 6.60138C4.05134 6.53052 4.07078 6.45988 4.125 6.40607C4.19324 6.33829 4.28107 6.33376 4.35059 6.3504C4.41874 6.36679 4.48375 6.40528 4.53418 6.44513H4.5332C4.70618 6.58126 4.87493 6.76321 5.0459 6.94708C5.20512 7.11841 5.36476 7.28905 5.53809 7.43927L5.7168 7.58185L5.93652 7.742L8.54199 5.18243L8.55176 5.17365V5.17462C8.60345 5.13555 8.63342 5.11844 8.65039 5.11115L8.66211 5.10626L8.6748 5.10431C8.73724 5.09504 8.79247 5.10139 8.83887 5.12189Z' fill='%23FE7D00' stroke='%23FE7D00' stroke-width='0.2'/%3E%3C/svg%3E");
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.quantity-option {
+  display:flex;
+  flex-direction: column !important;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  width:100%;
+
+}
+.variant-option__quantity .variant-option__button-label {
+    border: 0 !important;
+    min-height: 0;
+    padding: 5px;
+}
+.variant-option__quantity .variant-option__button-label__text {
+    displa: flex;
+    flex-direction: row !important;
+}
+.variant-option__button-label__text{
+ text-transform: lowercase;
+}
+.quantity-option__qty {
+  font-weight:600;
+}
+.quantity-option__price {
+  margin-left:0;
+  font-weight:600;
+}
+.quantity-option__unit {
+  font-size:12px;
+  opacity:0.6;
+}
+.variant-option__quantity .variant-option__button-label:not(.variant-option__button-label--has-swatch):before {
+    display: none;
+}
+.variant-option__quantity .variant-option__button-label input, 
+.variant-option__quantity .variant-option--images input {
+    position: relative !important;
+    display: block !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 1 !important;
+    margin: 0;
+    cursor: pointer;
+    width: 30px !important;
+    height: 100%;
+    color: orange;
+}
+.variant-option__quantity .variant-option__button-label__pill {
+    background: transparent !important;
+}
+.variant-option__quantity input[type="radio"] {
+  accent-color: chocolate;
+}
+.quantity-option__savings {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0px;
+    color:#BBC5BA;
+}
+.copilot-collection-heading p {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.98px;
+    text-align: center;
+    color: #979798;
+}
+.copilot-collection-heading h1 strong {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+.copilot-collection-heading h1 strong::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='218' height='28' viewBox='0 0 218 28' fill='none'%3E%3Cpath d='M4.27772 20.5149C4.27772 20.5149 55.2545 5.34986 48.207 12.4275C41.1595 19.5051 38.9896 22.2664 69.1875 13.7613C87.5327 8.59443 66.1625 18.7394 98.6523 17.0636C118.783 16.0253 154.782 6.92208 213.586 9.66058' stroke='%2306513F' stroke-width='2.68413' stroke-linecap='round' stroke-dasharray='0.13 0.13'/%3E%3Crect x='212.619' y='5.62231' width='3.70925' height='6.52745' transform='rotate(-1.17679 212.619 5.62231)' fill='%23F5F5F5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    pointer-events: none;
+}
+.copilot-collection-heading h1 strong::after {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: underlineIn 0.6s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.copilot-category-body .layout-block.
+.copilot-category-header .layout-block{
+  transition: transform .25s ease;
+}
+.copilot-category-body .layout-block:hover,
+.copilot-category-header .layout-block:hover{
+  animation: copilotHoverUp .35s ease;
+}
+
+@keyframes copilotHoverUp{
+  0%{
+    transform: translateY(0);
+  }
+  40%{
+    transform: translateY(-8px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+@keyframes underlineIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#grabacion-0 ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#grabacion-0 li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+}
+
+#grabacion-0 li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+
+  width: 13px;
+  height: 13px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13' fill='none'%3E%3Ccircle cx='6.5' cy='6.5' r='6.25' fill='white' stroke='%23FE7D00' stroke-width='0.5'/%3E%3Cpath d='M8.83887 5.12189C8.88483 5.14221 8.91604 5.17339 8.93652 5.20197L8.95996 5.242C8.98174 5.28915 8.99519 5.35781 8.96484 5.44122L8.95801 5.46271L8.94141 5.47833L6.08984 8.31232L6.08496 8.3172L6.01953 8.24103L6.08398 8.3172C6.01235 8.3782 5.87725 8.43701 5.74707 8.34943L5.73633 8.34259L5.72852 8.33282C5.61318 8.20343 5.48799 8.07752 5.3584 7.95392L4.96094 7.58868C4.66524 7.32112 4.37968 7.0617 4.15625 6.79181C4.10794 6.73363 4.07135 6.6688 4.06152 6.60138C4.05134 6.53052 4.07078 6.45988 4.125 6.40607C4.19324 6.33829 4.28107 6.33376 4.35059 6.3504C4.41874 6.36679 4.48375 6.40528 4.53418 6.44513H4.5332C4.70618 6.58126 4.87493 6.76321 5.0459 6.94708C5.20512 7.11841 5.36476 7.28905 5.53809 7.43927L5.7168 7.58185L5.93652 7.742L8.54199 5.18243L8.55176 5.17365V5.17462C8.60345 5.13555 8.63342 5.11844 8.65039 5.11115L8.66211 5.10626L8.6748 5.10431C8.73724 5.09504 8.79247 5.10139 8.83887 5.12189Z' fill='%23FE7D00' stroke='%23FE7D00' stroke-width='0.2'/%3E%3C/svg%3E");
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#grabacion-0 p,
+#grabacion-0 ul {
+    max-width: 360px;
+}
+/* QUICK CART */
+.cart__ctas .cart__checkout-button {
+    background-color: #FE7D00;
+    border-radius: 15px;
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.cart-drawer__inner .cart-discount {
+    display: none !important;
+}
+.cart-drawer__inner .tax-note {
+    display: none !important;
+}
+.cart-drawer__inner .cart-items__title {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 0;
+    color: #171717;
+}
+.cart-drawer__inner .cart-items__details>*+*, .cart-items__bundle li {
+    margin-block-start: 0;
+}
+.cart-drawer__inner .quantity-selector-wrapper {
+    display: none !important;
+}
+.cart-drawer__inner .cart-items__table-row {
+    position: relative !important;
+}
+.cart-drawer__inner .cart-items__remove {
+    position: absolute;
+    right: -10px;
+    top: 36px;
+}
+.cart-drawer__inner .cart-items__price {
+    margin-top: 5px;
+}
+.cart-drawer__inner .cart-items__variant {
+    display: flex;
+    gap: 5px;
+}
+.cart-drawer__inner .cart-items__variant * {
+    font-size: 10px !important;
+}
+.cl-upload--wrapper {
+    border: 1px dotted;
+    padding: 40px 0 0;
+    background-color: #eeeeee;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    position: relative;
+}
+.cl-upload--wrapper:before {
+  content: "";
+  background: url('https://cdn.shopify.com/s/files/1/0955/0731/7063/files/upload-icon.png?v=1774635388') center/contain no-repeat;
+  position: absolute;
+  top: 25px;
+  left: 55px;
+  width: 34px;
+  height: 26px;
+  z-index: 2;
+}
+.variant-option__swatch-value {
+    font-size: 20px !important
+}
+.cl-upload--wrapper:after {
+  content: "Subir logo";
+  position: absolute;
+  top: 17px;
+  left: 100px;
+  font-family: Poppins;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 0;
+    color: #171717;
+  z-index: 2;
+}
+.filepond--drop-label {
+    justify-content: flex-start !important;
+    padding-left: 100px;
+    width: 100%;
+}
+.filepond--drop-label.filepond--drop-label label {
+    padding: 10px 0 !important;
+}
+.resource-list .card-gallery {
+  aspect-ratio: 1 / 1;
+}
+.resource-list .product-media img {
+  object-fit: cover;
+}
+.product-grid .card-gallery {
+  aspect-ratio: 1 / 1;
+}
+.product-grid .product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+    .menu-drawer__menu--grid {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        padding: 0 0 0 20px !important;
+    }
+    .menu-drawer__menu--childlist{
+        display:none;
+        overflow:hidden;
+    }
+    .menu-drawer__menu--childlist{
+        max-height:0;
+        overflow:hidden;
+        transition:max-height .35s ease;
+    }
+    .menu-drawer__list-item--open > .menu-drawer__menu--childlist{
+        max-height:600px;
+    }
+    .menu-drawer__list-item--open > .menu-drawer__menu--childlist{
+        display:block;
+    }
+    #HeaderDrawer-productos{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .menu-drawer__list-item--open > #HeaderDrawer-productos::after{
+        transform:rotate(-135deg);
+    }
+    #HeaderDrawer-productos::after{
+        content:"";
+        width:10px;
+        height:10px;
+        border-right:2px solid currentColor;
+        border-bottom:2px solid currentColor;
+        transform:rotate(45deg);
+        transition:transform .3s ease;
+    }
+    .copilot-header-btn {
+        display: none !important;
+    }
+    .copilot-product-slider {
+        margin: 40px 0;
+        padding: 0 20px;
+    }
+    .copilot-product-slider .group-block-content {
+        gap: 15px;
+    }
+    .copilot-product-slider  div.text-block--align-center p {
+        font-size: 25px !important;
+        line-height: 30px !important;
+    }
+    .copilot-category-body {
+        padding-bottom: 30px !important;
+    }
+    .copilot-category-body .swiper {
+        padding-bottom: 20px;
+    }
+    .copilot-category-header {
+        padding-top: 30px !important;
+        width: 100% !important;
+    }
+    .copilot-category-header h2 {
+        font-size: 25px !important;
+        line-height: 30px !important;
+    } 
+    .copilot-video-section {
+        margin-top: 0 !important;
+    }
+    .copilot-video-section #principal {
+        gap: 20px !important;
+        width: 100% !important;
+    }
+    .copilot-video-section #principal p {
+        font-size: 25px;
+        line-height: 30px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+    .copilot-video-section #principal .flexible-video-block {
+        height: 240px !important;
+         width: 380px !important;
+    }
+    .copilot-custom-faqs h3 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+    .copilot-custom-faqs .accordion .details__header {
+        font-size: 18px;
+        padding: 12px 10px;
+    }
+    footer .footer-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+    }
+    footer .footer-content .group-block:nth-child(1) {
+        width: 500px;
+    }
+    footer .footer-content .group-block:nth-child(4) .mobile-column {
+        flex-flow: nowrap;
+        gap: 15px;
+        width: 200px;
+        align-items: center;
+    }
+    .copilot-category-header-top {
+        padding-bottom: 0;
+        width: 100% !important;
+    }
+    .copilot-category-header-top #principal-h {
+        text-align: center;
+        padding-bottom: 0 !important;
+    }
+    .copilot-catalog-page .collection-wrapper {
+        padding: 0 20px;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .copilot-catalog-page .logos-marquee .logos-inner .logos-text p {
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 30px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+    .copilot-catalog-page .main-collection-grid {
+        width: 100%;
+        max-width: 100%;
+    }
+    .copilot-catalog-page .main-collection-grid .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .copilot-catalog-page .custom-section-content h1 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+    .copilot-category-header .swiper-wrapper {
+        padding-bottom: 25px;
+    }
+    .copilot-catalog-page .mobile-column {
+        margin-top: 40px !important;
+    }
+    .copilot-catalog-page rte-formatter {
+        align-items: center;
+        width: 100%;
+    }
+    .copilot-list-shipping {
+        padding-left: 0;
+    }
+    .copilot-list-shipping__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .copilot-product-page .copilot-breadcrumb {
+        margin: 20px auto;
+    }
+    .copilot-product-page .product-information__media {
+        padding: 0 20px 20px;
+    }
+    .copilot-product-page .logos-marquee p,
+    .copilot-product-page .logos-marquee strong {
+        font-size: 25px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .copilot-contact-page {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    .copilot-content-contact {
+        margin-top: 20px !important;
+        margin-bottom: 40px !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    #left h1,
+    #left h2 {
+        font-size: 30px !important;
+        line-height: 35px;
+    }
+    #left p,
+    #left ul li {
+        font-size: 16px !important;
+    }
+    .copilot-content-contact .flexible-video-block {
+        width: 350px !important;
+        height: 300px !important;
+    }
+    .copilot-video-trabajamos {
+      margin: 40px 0 0 !important;
+      padding: 0 20px !important;
+    }
+    #tp-sub strong {
+        font-size: 25px !important; 
+    }
+    #tp-sub,
+    #tp-page {
+        width: 100% !important;
+    }
+    #tp-2 .flexible-video-block {
+        width: 400px !important;
+        height: 320px !important;
+    }
+    .copilot-custom-faqs .section-content-wrapper {
+        padding-top: 40px;
+    }
+    .copilot-custom-faqs .section-content-wrapper .text-block {
+        margin: 0 auto;
+    }
+    .product-card {
+        p {
+            font-size: 18px;
+            line-height: 20px;
+        }
+    }
+    .grabamos-con-tecnologia {
+        padding: 0 20px !important;
+        flex-direction: column-reverse !important;
+        width: 100% !important;
+    }
+    #grabacion-0,
+    #grabacion-1 {
+        width: 100% !important;
+    }
+    .gallery-item {
+        border-radius: 15px !important;
+    }
+    .variant-option__quantity .variant-option__button-label input, 
+    .variant-option__quantity .variant-option--images input {
+        height: 15px;
+    }
+    .filepond--drop-label {
+        justify-content: center !important;
+        padding-left: 0 !important;
+    }
+    .copilot-start-now__content p {
+        display: none;
+    }
+}
+
+@media (max-width: 460px) {
+    .product-card {
+        p {
+            font-size: 16px;
+            line-height: 18px;
+        }
+    }
+    .copilot-home-page .add-to-cart-button,
+    .copilot-catalog-page .add-to-cart-button {
+        padding: 8px 15px !important;
+        height: auto !important;
+    }
+}

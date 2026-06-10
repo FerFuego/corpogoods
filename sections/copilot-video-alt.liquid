@@ -1,0 +1,286 @@
+{% style %}
+    .copilot-video-stories{
+        padding: 80px 20px;
+    }
+
+    .copilot-video-stories__container{
+        max-width: 974px;
+        margin: 0 auto;
+    }
+
+    .copilot-video-stories__title{
+        font-family: 'Literata', serif;
+        color: #3D4982;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 35px;
+        text-align: center;
+        margin: 0 auto 40px;
+        max-width: 600px;
+    }
+
+    .copilot-video-stories__grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .copilot-video-card{
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+    .copilot-video-card video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 24px;
+    }
+
+    .copilot-video-card__play{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgba(0,0,0,.5);
+        color: white;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .js-video-slider .slick-track {
+        display: flex;
+    }
+
+    /* ===== MOBILE SLIDER ===== */
+    @media (max-width: 768px){
+        .copilot-video-stories {
+            padding: 40px 0px;
+        }
+        .copilot-video-stories__grid{
+            display: block;
+        }
+
+        .js-video-slider .slick-slide{
+            padding: 0 12px;
+        }
+
+        .js-video-slider .slick-dots{
+            margin-top: 20px;
+        }
+
+        .js-video-slider .slick-dots li button:before{
+            font-size: 10px;
+            color: #A25157;
+        }
+        .copilot-video-stories__title {
+            font-size: 25px !important;
+            line-height: 30px !important;
+            margin-bottom: 20px;
+        }
+    }
+{% endstyle %}
+
+<section class="copilot-video-stories">
+  <div class="copilot-video-stories__container">
+
+    {% if section.settings.title != blank %}
+      <h2 class="copilot-video-stories__title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    <div class="copilot-video-stories__grid js-video-slider">
+      {% for block in section.blocks %}
+        <div class="copilot-video-card" {{ block.shopify_attributes }}
+             data-es="{{ block.settings.video_es }}"
+             data-it="{{ block.settings.video_it }}"
+             data-pt="{{ block.settings.video_pt }}">
+            <div class="copilot-video-card__inner">
+                {% if block.settings.poster != blank %}
+                    <img 
+                        class="copilot-video-card__poster"
+                        src="{{ block.settings.poster | image_url: width: 800 }}"
+                        alt=""
+                    >
+                {% endif %}
+                <video muted playsinline preload="metadata"></video>
+                <button class="copilot-video-card__play">▶</button>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% javascript %}
+    document.addEventListener("DOMContentLoaded", function () {
+        const lang = document.documentElement.lang || "es";
+
+        document.querySelectorAll(".copilot-video-card").forEach(card => {
+            let src;
+
+            if (lang.startsWith("it")) {
+                src = card.dataset.it;
+            } else if (lang.startsWith("pt")) {
+                src = card.dataset.pt;
+            } else {
+                src = card.dataset.es;
+            }
+
+            const video = card.querySelector("video");
+            const btn = card.querySelector(".copilot-video-card__play");
+            const poster = card.querySelector(".copilot-video-card__poster");
+
+            if (!src) return;
+
+            video.src = src;
+            video.muted = true;
+            video.playsInline = true;
+            video.preload = "metadata";
+
+            function playFullVideo() {
+                video.currentTime = 0;
+                video.muted = false;
+                video.controls = true;
+                card.classList.add("playing");
+
+                if (poster) poster.style.display = "none";
+                if (btn) btn.style.display = "none";
+
+                video.play().catch(() => {});
+            }
+
+            function hoverPreviewStart() {
+                if (window.innerWidth <= 768) return;
+                if (card.classList.contains("playing")) return;
+
+                video.muted = true;
+                video.controls = false;
+
+                if (poster) poster.style.display = "none";
+                //if (btn) btn.style.display = "none";
+
+                video.play().catch(() => {});
+            }
+
+            function hoverPreviewStop() {
+                if (window.innerWidth <= 768) return;
+                if (card.classList.contains("playing")) return;
+
+                video.pause();
+                video.currentTime = 0;
+
+                if (poster) poster.style.display = "";
+                if (btn) btn.style.display = "";
+            }
+
+            if (btn) {
+                btn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    playFullVideo();
+                });
+            }
+
+            if (poster) {
+                poster.addEventListener("click", function () {
+                    playFullVideo();
+                });
+            }
+
+            card.addEventListener("mouseenter", hoverPreviewStart);
+            card.addEventListener("mouseleave", hoverPreviewStop);
+
+            video.addEventListener("ended", function () {
+                if (card.classList.contains("playing")) {
+                    card.classList.remove("playing");
+                    video.controls = false;
+                    video.muted = true;
+                    video.currentTime = 0;
+
+                    if (poster) poster.style.display = "";
+                    if (btn) btn.style.display = "";
+                }
+            });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.querySelector(".js-video-slider");
+        if (!slider || typeof $ === "undefined" || !$.fn.slick) return;
+
+        function initVideoSlider() {
+            if (window.innerWidth <= 768) {
+                if (!$(slider).hasClass("slick-initialized")) {
+                    $(slider).slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        centerMode: true,
+                        centerPadding: "60px",
+                        arrows: false,
+                        dots: true,
+                        adaptiveHeight: false
+                    });
+                }
+            } else {
+                if ($(slider).hasClass("slick-initialized")) {
+                    $(slider).slick("unslick");
+                }
+            }
+        }
+
+        initVideoSlider();
+        window.addEventListener("resize", initVideoSlider);
+    });
+{% endjavascript %}
+
+{% schema %}
+    {
+        "name": "Copilot Video Stories",
+        "settings": [
+            {
+            "type": "text",
+            "id": "title",
+            "label": "Título",
+            "default": "Historias reales de cuidado y maternidad"
+            }
+        ],
+        "blocks": [{
+            "type": "video",
+            "name": "Video",
+            "settings": [{
+                "type": "url",
+                "id": "video_es",
+                "label": "Video Español",
+            },
+            {
+                "type": "url",
+                "id": "video_it",
+                "label": "Video Italiano"
+            },
+            {
+                "type": "url",
+                "id": "video_pt",
+                "label": "Video Portugués"
+            },{
+                "type": "image_picker",
+                "id": "poster",
+                "label": "Imagen de portada"
+            }]
+        }],
+        "max_blocks": 3,
+        "presets": [
+            {
+                "name": "Copilot Video Stories"
+            }
+        ]
+    }
+{% endschema %}

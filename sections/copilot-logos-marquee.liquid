@@ -1,0 +1,239 @@
+{% style %}
+    .logos-marquee {
+        padding: 52px 0px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1200px;
+        overflow: hidden;
+    }
+    .logos-inner {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .logos-swiper {
+        overflow: hidden;
+    }
+
+    .logos-swiper .swiper-wrapper {
+        transition-timing-function: linear !important;
+    }
+    .logo-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logos-text {
+        max-width: 374px;
+    }
+
+    .logos-swiper .swiper-wrapper {
+        align-items: center;
+    }
+
+    .logos-text p {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0;
+        color: #171717;
+    }
+
+    .logos-text strong {
+        font-weight: 700;
+    }
+
+    .logos-track-wrapper {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .logos-track {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        will-change: transform;
+    }
+
+    .logos-swiper .swiper-slide {
+        width: 140px !important;
+        flex-shrink: 0;
+    }
+
+    .logo-item img {
+        max-height: 60px;
+        width: auto;
+        display: block;
+        filter: grayscale(0);
+        opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+        .logos-marquee {
+            border: 0;
+            padding: 20px 22px;
+        }
+        .logos-inner {
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+        .logos-swiper .swiper-slide {
+            width: 70px !important;
+        }
+        .logos-inner {
+            gap: 16px;
+        }
+        .logos-text {
+            max-width: 100% !important;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .logos-text p {
+            font-size: 16px;
+            line-height: 20px;
+        }
+        .logos-swiper .swiper-slide {
+            margin-right: 20px !important;
+            width: 100px !important;
+        }
+        .copilot-product-page .logos-marquee p, 
+        .copilot-product-page .logos-marquee strong {
+            font-size: 18px;
+            line-height: 22px;
+            text-align: center;
+        }
+    }
+{% endstyle %}
+
+<section class="logos-marquee">
+  <div class="logos-inner">
+
+    <!-- Texto -->
+    <div class="logos-text">
+      <p>{{ section.settings.text }}</p>
+    </div>
+
+    <!-- Marquee -->
+    <div class="logos-swiper swiper">
+        <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+            <div class="swiper-slide logo-item">
+                {% if block.settings.logo != blank %}
+                    <img src="{{ block.settings.logo | image_url: width: 240 }}" loading="lazy" alt="Logo">
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            {% for block in section.blocks %}
+            <div class="swiper-slide logo-item">
+                {% if block.settings.logo != blank %}
+                    <img src="{{ block.settings.logo | image_url: width: 240 }}" loading="lazy" alt="Logo">
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            {% for block in section.blocks %}
+            <div class="swiper-slide logo-item">
+                {% if block.settings.logo != blank %}
+                    <img src="{{ block.settings.logo | image_url: width: 240 }}" loading="lazy" alt="Logo">
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            {% for block in section.blocks %}
+            <div class="swiper-slide logo-item">
+                {% if block.settings.logo != blank %}
+                    <img src="{{ block.settings.logo | image_url: width: 240 }}" loading="lazy" alt="Logo">
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            {% for block in section.blocks %}
+            <div class="swiper-slide logo-item">
+                {% if block.settings.logo != blank %}
+                    <img src="{{ block.settings.logo | image_url: width: 240 }}" loading="lazy" alt="Logo">
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            {% for block in section.blocks %}
+            <div class="swiper-slide logo-item">
+                {% if block.settings.logo != blank %}
+                    <img src="{{ block.settings.logo | image_url: width: 240 }}" loading="lazy" alt="Logo">
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        document.querySelectorAll('.logos-swiper').forEach(slider => {
+
+            if (slider.classList.contains('swiper-initialized')) return;
+
+            new Swiper('.logos-swiper', {
+                loop: true,
+                loopAdditionalSlides: 10,
+                slidesPerView: 4,
+                spaceBetween: 30,
+
+                speed: 70000,
+                freeMode: false,
+                freeModeMomentum: false,
+                allowTouchMove: false,
+
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: true
+                },
+
+                observer: true,
+                observeParents: true,
+                watchSlidesProgress: true
+            });
+            
+        });
+
+    });
+</script>
+
+{% schema %}
+    {
+    "name": "Copilot Logos Marquee",
+    "settings": [
+        {
+        "type": "textarea",
+        "id": "text",
+        "label": "Texto",
+        "default": "<strong>45 años trabajando</strong> el regalo corporativo para grandes marcas"
+        }
+    ],
+    "blocks": [
+        {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+            }
+        ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Copilot Logos Marquee"
+        }
+    ]
+    }
+{% endschema %}

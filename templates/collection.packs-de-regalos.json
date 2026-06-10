@@ -1,0 +1,1036 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section": {
+      "type": "section",
+      "blocks": {
+        "text_tqQTNE": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1><strong>Packs de regalo</strong> corporativo con criterio de marca</h1>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_twGGkJ": {
+          "type": "text",
+          "name": "Description",
+          "settings": {
+            "text": "{{ closest.collection.description }}",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_tqQTNE",
+        "text_twGGkJ"
+      ],
+      "name": "Collection heading",
+      "settings": {
+        "custom_class": "copilot-collection-heading",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 15,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "copilot_flex_layout_zbKt8B": {
+      "type": "copilot-flex-layout",
+      "blocks": {
+        "container_xGriAV": {
+          "type": "container",
+          "settings": {
+            "container_name": "cont-7",
+            "layout": "flex",
+            "link": "shopify://collections/verano26",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "10px",
+            "gap": "0"
+          }
+        },
+        "image_7zgmYw": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "cont-7",
+            "image": "shopify://shop_images/Ellipse_648.png",
+            "width": "114px",
+            "height": "114px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        },
+        "heading_YczgG7": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "cont-7",
+            "text": "Verano 26",
+            "heading_tag": "h3",
+            "color": "#000000",
+            "font_size": "12px",
+            "font_weight": "400",
+            "margin": "10px auto 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "container_wbnpJU": {
+          "type": "container",
+          "settings": {
+            "container_name": "cont-2",
+            "layout": "flex",
+            "link": "shopify://collections/textil-premium",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "10px",
+            "gap": "0"
+          }
+        },
+        "image_pw63qa": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "cont-2",
+            "image": "shopify://shop_images/Ellipse_646.webp",
+            "width": "114px",
+            "height": "114px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        },
+        "heading_wWAMFm": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "cont-2",
+            "text": "Textil premium",
+            "heading_tag": "h3",
+            "color": "#000000",
+            "font_size": "12px",
+            "font_weight": "400",
+            "margin": "10px auto 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "container_TF9cFN": {
+          "type": "container",
+          "settings": {
+            "container_name": "cont-3",
+            "layout": "flex",
+            "link": "shopify://collections/drinkware",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "10px",
+            "gap": "0"
+          }
+        },
+        "image_yRTnXX": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "cont-3",
+            "image": "shopify://shop_images/Ellipse_6462.webp",
+            "width": "114px",
+            "height": "114px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        },
+        "heading_bcTnj6": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "cont-3",
+            "text": "Drinkware",
+            "heading_tag": "h3",
+            "color": "#000000",
+            "font_size": "12px",
+            "font_weight": "400",
+            "margin": "10px auto 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "container_wpnxX7": {
+          "type": "container",
+          "settings": {
+            "container_name": "cont-4",
+            "layout": "flex",
+            "link": "shopify://collections/bolsas",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "10px",
+            "gap": "0"
+          }
+        },
+        "image_ehfppx": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "cont-4",
+            "image": "shopify://shop_images/Ellipse_646_2.webp",
+            "width": "114px",
+            "height": "114px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        },
+        "heading_wPKxKK": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "cont-4",
+            "text": "Bolsas",
+            "heading_tag": "h3",
+            "color": "#000000",
+            "font_size": "12px",
+            "font_weight": "400",
+            "margin": "10px auto 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "container_6xYKPp": {
+          "type": "container",
+          "settings": {
+            "container_name": "cont-5",
+            "layout": "flex",
+            "link": "shopify://collections/oficina",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "10px",
+            "gap": "0"
+          }
+        },
+        "image_TiYAPm": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "cont-5",
+            "image": "shopify://shop_images/Ellipse_646_3.webp",
+            "width": "114px",
+            "height": "114px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        },
+        "heading_eU6wfW": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "cont-5",
+            "text": "Oficina",
+            "heading_tag": "h3",
+            "color": "#000000",
+            "font_size": "12px",
+            "font_weight": "400",
+            "margin": "10px auto 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "container_A48qzq": {
+          "type": "container",
+          "settings": {
+            "container_name": "cont-6",
+            "layout": "flex",
+            "link": "shopify://collections/electronica-util",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "10px",
+            "gap": "0"
+          }
+        },
+        "image_amzQtg": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "cont-6",
+            "image": "shopify://shop_images/Ellipse_646_4.webp",
+            "width": "114px",
+            "height": "114px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        },
+        "heading_hY9mUm": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "cont-6",
+            "text": "Electrónica útil",
+            "heading_tag": "h3",
+            "color": "#000000",
+            "font_size": "12px",
+            "font_weight": "400",
+            "margin": "10px auto 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "container_akErf6": {
+          "type": "container",
+          "settings": {
+            "container_name": "cont-1",
+            "layout": "flex",
+            "link": "shopify://collections/accesorios-corporativos",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "20px",
+            "gap": "0"
+          }
+        },
+        "image_pggwDc": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "cont-1",
+            "image": "shopify://shop_images/Ellipse_646_5.webp",
+            "width": "114px",
+            "height": "114px",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        },
+        "heading_JAnKc3": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "cont-1",
+            "text": "Accesorios coorporativos",
+            "heading_tag": "h3",
+            "color": "#000000",
+            "font_size": "12px",
+            "font_weight": "400",
+            "margin": "10px auto -10px",
+            "padding": "0",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": [
+        "container_xGriAV",
+        "image_7zgmYw",
+        "heading_YczgG7",
+        "container_wbnpJU",
+        "image_pw63qa",
+        "heading_wWAMFm",
+        "container_TF9cFN",
+        "image_yRTnXX",
+        "heading_bcTnj6",
+        "container_wpnxX7",
+        "image_ehfppx",
+        "heading_wPKxKK",
+        "container_6xYKPp",
+        "image_TiYAPm",
+        "heading_eU6wfW",
+        "container_A48qzq",
+        "image_amzQtg",
+        "heading_hY9mUm",
+        "container_akErf6",
+        "image_pggwDc",
+        "heading_JAnKc3"
+      ],
+      "name": "Copilot - Flexible Container",
+      "settings": {
+        "layout": "flex",
+        "flex_direction": "row",
+        "justify_content": "center",
+        "align_items": "center",
+        "background_color": "#ffffff",
+        "border": "0",
+        "width": "960px",
+        "height": "auto",
+        "margin": "0 auto",
+        "padding": "0",
+        "column_count": 3,
+        "rows_count": 3,
+        "gap": "0",
+        "custom_class": "copilot-category-header"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "filters": {
+          "type": "filters",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "enable_filtering": true,
+            "filter_style": "horizontal",
+            "filter_width": "centered",
+            "text_label_case": "default",
+            "show_swatch_label": false,
+            "show_filter_label": false,
+            "enable_sorting": true,
+            "enable_grid_density": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "padding-block-start": 8,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "facets_margin_bottom": 8,
+            "facets_margin_right": 20
+          },
+          "blocks": {}
+        },
+        "product-card": {
+          "type": "_product-card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "card-gallery": {
+              "type": "_product-card-gallery",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_4nY4eT": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_EzJzMm": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "card-gallery",
+            "product_title_4nY4eT",
+            "price_EzJzMm"
+          ]
+        }
+      },
+      "settings": {
+        "layout_type": "grid",
+        "product_card_size": "medium",
+        "mobile_product_card_size": "small",
+        "enable_infinite_scroll": true,
+        "products_per_page": 24,
+        "product_grid_width": "centered",
+        "full_width_on_mobile": true,
+        "columns_gap_horizontal": 16,
+        "columns_gap_vertical": 24,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 32
+      }
+    },
+    "copilot_reviews_slider_VVWWCx": {
+      "type": "copilot-reviews-slider",
+      "blocks": {
+        "review_PAyK7E": {
+          "type": "review",
+          "settings": {
+            "brand": "HARRY'S",
+            "author": "Talia Salomón",
+            "text": "Nos presentó un producto de nueva calidad. ¡Esperamos trabajar con ellos en el futuro!",
+            "rating": 5
+          }
+        },
+        "review_nrQJcy": {
+          "type": "review",
+          "settings": {
+            "brand": "HARRY'S",
+            "author": "Talia Salomón",
+            "text": "Nos presentó un producto de nueva calidad. ¡Esperamos trabajar con ellos en el futuro!",
+            "rating": 5
+          }
+        },
+        "review_Jjd3tf": {
+          "type": "review",
+          "settings": {
+            "brand": "HARRY'S",
+            "author": "Talia Salomón",
+            "text": "Nos presentó un producto de nueva calidad. ¡Esperamos trabajar con ellos en el futuro!",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "review_PAyK7E",
+        "review_nrQJcy",
+        "review_Jjd3tf"
+      ],
+      "name": "Copilot Reviews Slider",
+      "settings": {
+        "title": "Esto es lo que dicen quienes ya representan su marca con nosotros"
+      }
+    },
+    "copilot_logos_marquee_TFYwt3": {
+      "type": "copilot-logos-marquee",
+      "blocks": {
+        "logo_bRzd8q": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_22.png"
+          }
+        },
+        "logo_fVxpzX": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/ace49a510e8cd8f6a90fc528bb832094f982a27d.png"
+          }
+        },
+        "logo_FGq8T8": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_6.png"
+          }
+        },
+        "logo_aGWbTy": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_9.png"
+          }
+        },
+        "logo_cBkwzz": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_11_50fba4ad-6f0f-4034-b998-eb6205a50316.png"
+          }
+        },
+        "logo_WyR9HR": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_10_bb9a09a2-c1e9-4ab9-8fa2-581041edeb97.png"
+          }
+        },
+        "logo_yKmdYR": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Sin_titulo-1_1_c9d58cb8-0b3e-4f4d-82ba-0887f0e9c32a.png"
+          }
+        },
+        "logo_RUwYDN": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_2_8c4a8ea6-c447-4fd9-b13f-f3503498d700.png"
+          }
+        },
+        "logo_kNJjqX": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/9cfa988a7ad81b03b1f3150450ba045b3695a1ae.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_bRzd8q",
+        "logo_fVxpzX",
+        "logo_FGq8T8",
+        "logo_aGWbTy",
+        "logo_cBkwzz",
+        "logo_WyR9HR",
+        "logo_yKmdYR",
+        "logo_RUwYDN",
+        "logo_kNJjqX"
+      ],
+      "custom_css": [],
+      "name": "Copilot Logos Marquee",
+      "settings": {
+        "text": "<strong>Más de X años trabajando el regalo corporativo para grandes marcas</strong>"
+      }
+    },
+    "section_FNVd6M": {
+      "type": "section",
+      "blocks": {
+        "text_bWYDHN": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>Preguntas frecuentes</h3>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_MPUMGf": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_b46PkG": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Hay pedido mínimo?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_qNwTeF": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Nuestro objetivo es que cada cliente quede totalmente satisfecho con su compra. Si no es así, cuéntanoslo y haremos todo lo posible para solucionarlo.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_qNwTeF"
+              ]
+            },
+            "accordion_row_rX7gfF": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Puedo pedir asesoramiento?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_iBpn3L": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>No podemos aceptar devoluciones de ciertos artículos. Se marcarán claramente antes de la compra.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_iBpn3L"
+              ]
+            },
+            "accordion_row_DUAa3P": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Personalizáis todos los productos?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_awMmay": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_awMmay"
+              ]
+            },
+            "accordion_row_xJQT68": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Qué plazos de entrega manejáis?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_Y3JQ9b": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Nuestros productos se fabrican tanto localmente como globalmente. Seleccionamos cuidadosamente a nuestros socios de fabricación para garantizar alta calidad y un precio justo.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_Y3JQ9b"
+              ]
+            },
+            "accordion_row_3AUtj7": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Puedo recibir una muestra?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_gJNWn3": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>El envío se calcula según tu ubicación y los artículos de tu pedido. Siempre conocerás el precio del envío antes de realizar la compra.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_gJNWn3"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_b46PkG",
+            "accordion_row_rX7gfF",
+            "accordion_row_DUAa3P",
+            "accordion_row_xJQT68",
+            "accordion_row_3AUtj7"
+          ]
+        }
+      },
+      "block_order": [
+        "text_bWYDHN",
+        "accordion_MPUMGf"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "custom_class": "copilot-custom-faqs",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "copilot_contact_form_krqAce": {
+      "type": "copilot-contact-form",
+      "name": "Copilot Contact Form",
+      "settings": {
+        "image": "shopify://shop_images/form-cont.webp",
+        "title": "Hablemos de cómo representar bien tu marca",
+        "text": "Cuéntanos el contexto y te ayudamos a elegir un regalo corporativo con criterio, coherente y a la altura de tu empresa.",
+        "button_text": "Hablar con un experto"
+      }
+    }
+  },
+  "order": [
+    "section",
+    "copilot_flex_layout_zbKt8B",
+    "main",
+    "copilot_reviews_slider_VVWWCx",
+    "copilot_logos_marquee_TFYwt3",
+    "section_FNVd6M",
+    "copilot_contact_form_krqAce"
+  ]
+}

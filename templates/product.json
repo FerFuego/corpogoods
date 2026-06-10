@@ -1,0 +1,948 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_8Q7UcG": {
+      "type": "custom-liquid",
+      "name": "Breadcrumb",
+      "settings": {
+        "custom_liquid": "<nav class=\"copilot-breadcrumb\" aria-label=\"Breadcrumb\">\n  <a href=\"{{ routes.root_url }}\">Inicio</a>\n\n  {% if collection %}\n    <span class=\"copilot-breadcrumb-separator\"> > </span>\n    <a href=\"{{ collection.url }}\">{{ collection.title }}</a>\n  {% endif %}\n\n  <span class=\"copilot-breadcrumb-separator\"> > </span>\n  <span class=\"copilot-breadcrumb-current\">{{ product.title }}</span>\n</nav>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": true,
+            "icons_style": "none",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 44,
+            "thumbnail_radius": 5,
+            "aspect_ratio": "1",
+            "constrain_to_viewport": true,
+            "media_fit": "contain",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 0,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 50,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_jLPyWd": {
+                  "type": "text",
+                  "name": "Product description",
+                  "settings": {
+                    "text": "{{ closest.product.description }}",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "text_jLPyWd"
+              ]
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 20,
+                "padding-block-end": 20
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": true,
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "custom_liquid_hyWr8A": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<div class=\"iva-switch\">\n    <label class=\"iva-toggle\">\n      <input type=\"checkbox\" id=\"ivaToggle\">\n      <span class=\"slider\"></span>\n    </label>\n    <span class=\"iva-label\" id=\"ivaLabel\">Sin IVA</span>\n  </div>\n<legend><strong class=\"variant-option__swatch-value\">Proyecto</strong></legend>"
+              },
+              "blocks": {}
+            },
+            "upload_lift_app_block_TinjkY": {
+              "type": "shopify://apps/upload-lift/blocks/app-block/3c98bdcb-7587-4ade-bfe4-7d8af00d05ca",
+              "settings": {
+                "product": "{{product}}",
+                "field": "Logo"
+              }
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "redirect_to_product": false,
+                "redirect_label": "Ver producto",
+                "padding-block-start": 0,
+                "padding-block-end": 20,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "custom_liquid_eamCMk": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<h5>¿Necesitas ayuda de un experto?</h5>\n<div class=\"copilot-start-now__body copilot-start-now__body__copiproduct\">\n    <a class=\"copilot-start-now__item\" href=\"#contacto\">\n        <img src=\"//corpogoods.myshopify.com/cdn/shop/files/Group_1000008697.png?v=1769605008&amp;width=100\" alt=\"\">\n        <div class=\"copilot-start-now__content\">\n            <strong>Contactar con un experto</strong>\n            <p>Hablemos, cuéntanos tu proyecto y solicita una cotización personalizada.</p>\n        </div>\n        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"36\" height=\"36\" viewBox=\"0 0 36 36\" fill=\"none\">\n        <circle cx=\"18\" cy=\"18\" r=\"18\" transform=\"rotate(-90 18 18)\" fill=\"#FE7D00\"></circle>\n        <path d=\"M12 17.3531L23.1937 17.3531M23.1937 17.3531L18.8406 13M23.1937 17.3531L18.8406 21.7062\" stroke=\"white\" stroke-width=\"1.59911\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n        </svg>\n    </a>\n</div>\n<br>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_FJCxF6": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<div class=\"copilot-list-shipping\">\n<div class=\"copilot-list-shipping__item\"><img src=\"https://cdn.shopify.com/s/files/1/0955/0731/7063/files/box.png?v=1769719124\" width=\"57\"> Entrega a\n6-7 días</div>\n<div class=\"copilot-list-shipping__item\"><img src=\"https://cdn.shopify.com/s/files/1/0955/0731/7063/files/car.svg?v=1769719083\" width=\"40\"> Envío gratis a partir de 75€</div>\n<div class=\"copilot-list-shipping__item\"><img src=\"https://cdn.shopify.com/s/files/1/0955/0731/7063/files/map.svg?v=1769719083\" width=\"40\"> Empresa española</div>\n</div>"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "divider_VJhene",
+            "variant_picker_R3rGDr",
+            "custom_liquid_hyWr8A",
+            "upload_lift_app_block_TinjkY",
+            "buy_buttons_eYQEYi",
+            "custom_liquid_eamCMk",
+            "custom_liquid_FJCxF6"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 24,
+        "enable_sticky_add_to_cart": false,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h2><strong>También te puede gustar</strong></h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h4",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-1",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_jbTaRH": {
+              "type": "buy-buttons",
+              "name": "t:names.product_buy_buttons",
+              "settings": {
+                "stacking": false,
+                "show_pickup_availability": false,
+                "gift_card_form": false,
+                "redirect_to_product": true,
+                "redirect_label": "Ver producto",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-secondary"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6",
+            "buy_buttons_jbTaRH"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "custom_css": [
+        ".section-resource-list {max-width: 1120px; margin: 0 auto;}"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 3,
+        "mobile_columns": "2",
+        "columns_gap": 20,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "circle",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "copilot_logos_marquee_N3kdQn": {
+      "type": "copilot-logos-marquee",
+      "blocks": {
+        "logo_iY8CVG": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/9cfa988a7ad81b03b1f3150450ba045b3695a1ae.png"
+          }
+        },
+        "logo_8taNV3": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_2_8c4a8ea6-c447-4fd9-b13f-f3503498d700.png"
+          }
+        },
+        "logo_p6kAxf": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/rayo-vallecano.png"
+          }
+        },
+        "logo_P6RNak": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/panama.png"
+          }
+        },
+        "logo_7YPL3j": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_11_50fba4ad-6f0f-4034-b998-eb6205a50316.png"
+          }
+        },
+        "logo_pbCTBF": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_9_0119d0d6-0a39-48a9-b940-b90eaa883287.png"
+          }
+        },
+        "logo_fEmNKt": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_6.png"
+          }
+        },
+        "logo_ydadjx": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/ace49a510e8cd8f6a90fc528bb832094f982a27d.png"
+          }
+        },
+        "logo_UCFm8f": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/9cfa988a7ad81b03b1f3150450ba045b3695a1ae.png"
+          }
+        },
+        "logo_z9UFqn": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_2_8c4a8ea6-c447-4fd9-b13f-f3503498d700.png"
+          }
+        },
+        "logo_C4qMiz": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/rayo-vallecano.png"
+          }
+        },
+        "logo_kjnrhy": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_11_50fba4ad-6f0f-4034-b998-eb6205a50316.png"
+          }
+        },
+        "logo_LKRfV4": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/panama.png"
+          }
+        },
+        "logo_frfBdA": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_9_0119d0d6-0a39-48a9-b940-b90eaa883287.png"
+          }
+        },
+        "logo_NbJFGM": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_6.png"
+          }
+        },
+        "logo_aLF3FN": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/ace49a510e8cd8f6a90fc528bb832094f982a27d.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_iY8CVG",
+        "logo_8taNV3",
+        "logo_p6kAxf",
+        "logo_P6RNak",
+        "logo_7YPL3j",
+        "logo_pbCTBF",
+        "logo_fEmNKt",
+        "logo_ydadjx",
+        "logo_UCFm8f",
+        "logo_z9UFqn",
+        "logo_C4qMiz",
+        "logo_kjnrhy",
+        "logo_LKRfV4",
+        "logo_frfBdA",
+        "logo_NbJFGM",
+        "logo_aLF3FN"
+      ],
+      "custom_css": [
+        "p strong {font-size: 20px !important;}"
+      ],
+      "name": "Copilot Logos Marquee",
+      "settings": {
+        "text": "<strong>Más de 40 años trabajando el regalo corporativo para grandes marcas</strong>"
+      }
+    },
+    "section_7miYMV": {
+      "type": "section",
+      "blocks": {
+        "text_i4eLxb": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3><strong>Preguntas frecuentes</strong></h3>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_7UnVfU": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_cBAB33": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Hay pedido mínimo?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_JcNwpd": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>El pedido mínimo depende de cada producto. Trabajamos tanto proyectos pequeños como producciones corporativas de mayor volumen.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_JcNwpd"
+              ]
+            },
+            "accordion_row_FKpkew": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Qué plazos de entrega manejáis?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_wy8hbj": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>El plazo habitual de producción y entrega es de <strong>7 a 10 días hábiles</strong> desde la confirmación del pedido.<br/> Si lo necesitas antes, también podemos gestionar <strong>pedidos urgentes</strong> según disponibilidad.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_wy8hbj"
+              ]
+            },
+            "accordion_row_KqxXBF": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Puedo recibir una muestra antes de producir?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_EGqFbM": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Sí. Podemos enviar muestras de producto <strong>previo pago</strong>. Si posteriormente confirmas el pedido, <strong>el coste de la muestra se descuenta del pedido final</strong>.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_EGqFbM"
+              ]
+            },
+            "accordion_row_AkJBRz": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Puedo pedir asesoramiento?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_qmaHBM": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Sí. Nuestro equipo te ayuda a elegir el regalo corporativo más adecuado según tu marca, el contexto y el número de unidades. Nuestro objetivo es que tomes una buena decisión, no simplemente vender más productos.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_qmaHBM"
+              ]
+            },
+            "accordion_row_FkMm7y": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "¿Personalizáis todos los productos?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_rwgdPn": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>La mayoría de nuestros productos permiten personalización con tu marca. En cada caso te asesoramos sobre la técnica y el diseño más adecuado para que el resultado sea limpio, duradero y coherente con tu identidad de marca.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_rwgdPn"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_cBAB33",
+            "accordion_row_FKpkew",
+            "accordion_row_KqxXBF",
+            "accordion_row_AkJBRz",
+            "accordion_row_FkMm7y"
+          ]
+        }
+      },
+      "block_order": [
+        "text_i4eLxb",
+        "accordion_7UnVfU"
+      ],
+      "custom_css": [
+        ".details-content p {width: 100%; max-width: 100%; padding: 0 40px;}"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "custom_class": "copilot-custom-faqs",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 100,
+        "padding-block-end": 0
+      }
+    },
+    "copilot_contact_form_3et6Qz": {
+      "type": "copilot-contact-form",
+      "blocks": {
+        "forms_inline_TkECCb": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "945142",
+            "text_color": "#202020",
+            "button_background_color": "#fe7d00",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_TkECCb"
+      ],
+      "name": "Copilot Contact Form",
+      "settings": {
+        "image": "shopify://shop_images/team.webp",
+        "title": "Hablemos de cómo representar bien tu marca",
+        "text": "Cuéntanos el contexto y te ayudamos a elegir un regalo corporativo con criterio, coherente y a la altura de tu empresa.",
+        "button_text": "Hablar con un experto"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_8Q7UcG",
+    "main",
+    "product_recommendations_qggXJq",
+    "copilot_logos_marquee_N3kdQn",
+    "section_7miYMV",
+    "copilot_contact_form_3et6Qz"
+  ]
+}

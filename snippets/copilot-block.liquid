@@ -1,0 +1,360 @@
+{%  assign section_containers = containers %}
+{%  assign section_blocks = blocks %}
+{%- for b in section_blocks -%}
+  {%- if b.settings.parent_container_name == container.settings.container_name -%}
+    <div class="nested-block nested-block--{{ b.type }}">
+      {%- case b.type -%}
+        {%- when 'heading' -%}
+          <{{ b.settings.heading_tag }} style="
+            color: {{ b.settings.color }}; 
+            font-size: {{ b.settings.font_size }}; 
+            font-weight: {{ b.settings.font_weight }}; 
+            margin: {{ b.settings.margin }}; 
+            padding: {{ b.settings.padding }};
+            width: {{ b.settings.width }};
+          ">
+            {{ b.settings.text }}
+          </{{ b.settings.heading_tag }}>
+        {%- when 'text' -%}
+          <p style="
+            color: {{ b.settings.color }};
+            font-size: {{ b.settings.font_size }};
+            font-weight:  {{ b.settings.font_weight }};
+            line-height:  {{ b.settings.line_height }};
+            text-align: {{ b.settings.text_align }};
+            margin: {{ b.settings.margin }};
+            padding: {{ b.settings.padding }};
+          ">
+            {{ b.settings.text }}
+          </p>
+        {%- when 'richtext' -%}
+          <div style="
+            color: {{ b.settings.color }};
+            font-size: {{ b.settings.font_size }};
+            font-weight:  {{ b.settings.font_weight }};
+            line-height:  {{ b.settings.line_height }};
+            text-align: {{ b.settings.text_align }};
+            margin: {{ b.settings.margin }};
+            padding: {{ b.settings.padding }};
+          ">
+            {{ b.settings.text }}
+          </div>
+        {%- when 'image' -%}
+          <img src="{{ b.settings.image | image_url: width: 800 }}" alt="Imagen" style="
+            width: {{ b.settings.width }};
+            height: {{ b.settings.height }};
+            margin: {{ b.settings.margin }};
+            padding: {{ b.settings.padding }};
+            border-radius: {{ b.settings.border_radius }};
+          " />
+        {%- when 'button' -%}
+          <a href="{{ b.settings.url }}" class="button" style="
+            background-color: {{ b.settings.background_color }};
+            color: {{ b.settings.color }};
+            font-size: {{ b.settings.font_size }};
+            font-weight:  {{ b.settings.font_weight }};
+            line-height:  {{ b.settings.line_height }};
+            padding: {{ b.settings.padding }};
+            margin: {{ b.settings.margin }};
+            border: {{ b.settings.border }};
+            border-radius: {{ b.settings.border_radius }};
+            width: {{ b.settings.width }};
+            height: {{ b.settings.height }};
+            text-decoration: none;
+            display: {{ b.settings.layout }};
+            justify-content: {{ b.settings.justify_content }};
+            align-items: {{ b.settings.align_items }};
+          ">
+            {{ b.settings.label }}
+          </a>
+        {%- when 'video' -%}
+          {{ 'video-section.css' | asset_url | stylesheet_tag }}
+          {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+          {%- assign video = b.settings.video -%}
+          {%- assign video_url = b.settings.video_url -%}
+          {%- assign poster = b.settings.cover_image -%}
+          {%- assign loop = b.settings.enable_video_looping -%}
+        
+          <div class="flexible-video-block" style="
+            width: {{ b.settings.width }};
+            height: {{ b.settings.height }};
+            margin: {{ b.settings.margin }};
+            padding: {{ b.settings.padding }};
+            border-radius: {{ b.settings.border_radius }};
+            overflow: hidden;
+          ">
+            {%- if video != blank -%}
+             <video
+                controls
+                {% if loop %} loop {% endif %}
+                style="
+                  width: 100%;
+                  height: 100%;
+                "
+              >
+                {% for source in video.sources %}
+                  <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                {% endfor %}
+              </video>
+              {% if poster != blank %}
+                <div class="copilot-video-poster" style="background-image:url({{ poster | image_url: width: 1200 }});"></div>
+              {% endif %}
+              <button class="copilot-video-card__play">▶</button>
+            {%- elsif video_url != blank -%}
+              {%- assign video_id = '' -%}
+              {%- assign video_type = '' -%}
+              {%- if video_url contains 'youtube.com' or video_url contains 'youtu.be' -%}
+                {%- assign video_type = 'youtube' -%}
+                {%- if video_url contains 'v=' -%}
+                  {%- assign video_id = video_url | split: 'v=' | last | split: '&' | first -%}
+                {%- elsif video_url contains 'youtu.be/' -%}
+                  {%- assign video_id = video_url | split: 'youtu.be/' | last | split: '?' | first -%}
+                {%- endif -%}
+              {%- elsif video_url contains 'vimeo.com' -%}
+                {%- assign video_type = 'vimeo' -%}
+                {%- assign video_id = video_url | split: '/' | last -%}
+              {%- endif -%}
+        
+              {%- if video_type == 'youtube' and video_id != blank -%}
+                <iframe
+                  width="100%" height="100%"
+                  src="https://www.youtube.com/embed/{{ video_id }}?rel=0&loop={% if loop %}1&playlist={{ video_id }}{% else %}0{% endif %}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              {%- elsif video_type == 'vimeo' and video_id != blank -%}
+                <iframe
+                  src="https://player.vimeo.com/video/{{ video_id }}?loop={% if loop %}1{% else %}0{% endif %}&autoplay=0&muted=0"
+                  width="100%" height="100%"
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              {%- else -%}
+                <p>Video URL inválido o no soportado</p>
+              {%- endif -%}
+            {%- else -%}
+              <p>No hay video disponible</p>
+            {%- endif -%}
+          </div>
+        {% when 'contact_form' %}
+
+            <div
+              class="
+                contact-form
+                spacing-style size-style
+                {% if block.settings.inherit_color_scheme == false %}color-{{ block.settings.color_scheme }}{% endif %}
+              "
+              style="
+                {% render 'spacing-style', settings: block.settings %}
+                {% render 'size-style', settings: block.settings %}
+              "
+              {{ block.shopify_attributes }}
+            >
+              {% assign form_id = block.id | default: section.id | prepend: 'ContactForm-' %}
+
+              {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
+                {%- if form.errors -%}
+                  <div
+                    class="contact-form__error"
+                    tabindex="-1"
+                    autofocus
+                  >
+                    {{- 'icon-error.svg' | inline_asset_content -}}
+
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                  </div>
+                {%- endif -%}
+
+                {%- if form.posted_successfully? -%}
+                  <div
+                    class="contact-form__success"
+                    tabindex="-1"
+                    autofocus
+                  >
+                    {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                    {{- 'blocks.contact_form.post_success' | t -}}
+                  </div>
+                {%- endif -%}
+
+                <div class="contact-form__form-row">
+                  <label
+                    class="visually-hidden"
+                    for="ContactForm-name"
+                  >
+                    {{- 'blocks.contact_form.name' | t -}}
+                  </label>
+                  <input
+                    type="text"
+                    id="ContactForm-name"
+                    class="contact-form__input"
+                    autocomplete="name"
+                    name="contact[name]"
+                    value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                    placeholder="Nombre Completo"
+                  >
+                </div>
+
+                <div class="contact-form__form-row">
+                  <label
+                    class="visually-hidden"
+                    for="ContactForm-email"
+                  >
+                    {{- 'blocks.contact_form.email' | t -}}
+                    <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="ContactForm-email"
+                    class="contact-form__input"
+                    autocomplete="email"
+                    name="contact[email]"
+                    spellcheck="false"
+                    autocapitalize="off"
+                    value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                    aria-required="true"
+                    {% if form.errors contains 'email' %}
+                      aria-invalid="true"
+                      aria-describedby="ContactForm-email-error"
+                    {% endif %}
+                    placeholder="Email Profesional"
+                  >
+                </div>
+
+                <div class="contact-form__form-row">
+
+                  <label
+                    class="visually-hidden"
+                    for="ContactForm-phone"
+                  >
+                    {{- 'blocks.contact_form.phone' | t -}}
+                  </label>
+                  <input
+                    type="tel"
+                    id="ContactForm-phone"
+                    class="contact-form__input"
+                    autocomplete="tel"
+                    name="contact[phone]"
+                    pattern="[0-9\-]*"
+                    value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                    placeholder="{{ 'blocks.contact_form.phone' | t }}"
+                  >
+                </div>
+
+                <div class="contact-form__form-row">
+                  <label
+                    class="visually-hidden"
+                    for="ContactForm-name"
+                  >
+                    Empresa
+                  </label>
+                  <input
+                    type="text"
+                    id="ContactForm-empresa"
+                    class="contact-form__input"
+                    autocomplete="empresa"
+                    empresa="contact[empresa]"
+                    value="{% if form.empresa %}{{ form.empresa }}{% elsif customer %}{{ customer.empresa }}{% endif %}"
+                    placeholder="Empresa"
+                  >
+                </div>
+
+                <div class="contact-form__form-row">
+                    <label
+                      class="visually-hidden"
+                      for="ContactForm-motivo"
+                    >
+                      ¿Para qué necesitas el regalo?
+                    </label>
+
+                    <select
+                      id="ContactForm-motivo"
+                      class="contact-form__input"
+                      name="contact[motivo]"
+                    >
+                      <option value="" disabled selected>
+                        ¿Para qué necesitas el regalo?
+                      </option>
+
+                      <option value="evento-corporativo"
+                        {% if form.motivo == "evento-corporativo" %}selected{% endif %}
+                      >
+                        Evento corporativo
+                      </option>
+
+                      <option value="regalo-clientes"
+                        {% if form.motivo == "regalo-clientes" %}selected{% endif %}
+                      >
+                        Regalo para clientes
+                      </option>
+
+                      <option value="regalo-empleados"
+                        {% if form.motivo == "regalo-empleados" %}selected{% endif %}
+                      >
+                        Regalo para empleados
+                      </option>
+
+                      <option value="accion-marketing"
+                        {% if form.motivo == "accion-marketing" %}selected{% endif %}
+                      >
+                        Acción de marketing
+                      </option>
+
+                      <option value="otro"
+                        {% if form.motivo == "otro" %}selected{% endif %}
+                      >
+                        Otro
+                      </option>
+
+                    </select>
+                  </div>
+
+                <label
+                  class="visually-hidden"
+                  for="ContactForm-body"
+                >
+                  {{- 'blocks.contact_form.comment' | t -}}
+                </label>
+                <textarea
+                  rows="4"
+                  id="ContactForm-body"
+                  class="contact-form__input contact-form__input--textarea"
+                  name="contact[body]"
+                  placeholder="En que podemos ayudarte"
+                >
+                  {{- form.body -}}
+                </textarea>
+
+                <div class="contact-form__form-row contact-form__form-row--checkbox">
+
+                  <input type="hidden" name="contact[privacy]" value="not-accepted">
+
+                  <input
+                    type="checkbox"
+                    id="ContactForm-privacy"
+                    class="contact-form__checkbox"
+                    name="contact[privacy]"
+                    value="accepted"
+                    {% if form.privacy == "accepted" %}
+                      checked
+                    {% endif %}
+                  >
+
+                  <label for="ContactForm-privacy">
+                    Estoy de acuerdo con la política de privacidad
+                  </label>
+
+                </div>
+
+                <button type="submit" class="button submit-button size-style button" style="--size-style-width: fit-content;--size-style-height: ;--size-style-width-mobile: fit-content; --size-style-width-mobile-min: fit-content;">Hablar con un experto</button>
+              {%- endform -%}
+              
+            </div>
+      {%- endcase -%}
+    </div>
+  {%- endif -%}
+{%- endfor -%}

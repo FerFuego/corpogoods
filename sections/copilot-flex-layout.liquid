@@ -1,0 +1,571 @@
+{% comment %}
+  Flexible Layout Section con nested_container que permite bloques hijos (text, image, button)
+{% endcomment %}
+
+{%- liquid
+  assign grid_columns = section.settings.column_count | default: 3
+  assign grid_rows = section.settings.rows_count | default: 3
+  assign layout_type = section.settings.layout
+  assign is_grid = false
+  assign is_flex_grid = false
+
+  if layout_type == "grid"
+    assign is_grid = true
+  elsif layout_type == "flex-grid"
+    assign is_flex_grid = true
+  endif
+-%}
+
+{% style %}
+  .flexible-video-block {
+    position: relative;
+  }
+  .copilot-video-wrapper {
+    position: relative;
+  }
+
+  .copilot-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .copilot-video-poster {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  /* ocultar cuando reproduce */
+  .copilot-video-wrapper.is-playing .copilot-video-poster {
+    display: none;
+  }
+
+  /* botón play */
+  .copilot-video-card__play {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .copilot-video-card__play{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.5);
+    color: white;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+  }
+{% endstyle %}
+
+<section class="custom-flex-layout {{ section.settings.custom_class }}" style="
+  {% if is_grid %}
+    display: grid;
+    grid-template-columns: repeat({{ grid_columns }}, 1fr);
+    grid-template-rows: repeat({{ grid_rows }}, auto);
+    grid-auto-flow: dense;
+  {% elsif is_flex_grid %}
+    display: flex;
+    flex-wrap: wrap;
+    --columns: {{ grid_columns }};
+    --gap: {{ section.settings.gap }};
+  {% else %}
+    display: {{ layout_type }};
+    flex-direction: {{ section.settings.flex_direction }};
+  {% endif %}
+  justify-content: {{ section.settings.justify_content }};
+  align-items: {{ section.settings.align_items }};
+  background-color: {{ section.settings.background_color }};
+  border: {{ section.settings.border }};
+  width: {{ section.settings.width }};
+  height: {{ section.settings.height }};
+  padding: {{ section.settings.padding }};
+  margin: {{ section.settings.margin }};
+  gap: {{ section.settings.gap }};">
+
+  {%- assign containers = section.blocks | where: "type", "container" -%}
+
+  {%- for container in containers -%}
+    {%- liquid
+      assign grid_position = container.settings.grid_position | default: "auto/auto"
+      assign position_parts = grid_position | split: '/'
+      assign grid_column = position_parts[0] | default: 'auto'
+      assign grid_row = position_parts[1] | default: 'auto'
+      
+      if is_flex_grid
+        assign flex_position = grid_position | split: '/' | join: '-'
+        assign flex_order = container.settings.flex_order | default: 0
+      endif
+    -%}
+
+    {% assign container_link = container.settings.link %}
+
+    {% if container_link != blank %}
+      <a 
+        href="{{ container_link }}"
+        id="{{ container.settings.container_name }}"
+        class="layout-block layout-block--container layout-block--link"
+        {% if container.settings.link_new_tab %}
+          target="_blank"
+          rel="noopener"
+        {% endif %}
+        style="
+          display: {{ container.settings.layout }};
+          flex-direction: {{ container.settings.flex_direction }};
+          justify-content: {{ container.settings.justify_content }};
+          align-items: {{ container.settings.align_items }};
+          background-color: {{ container.settings.background_color }};
+          border: {{ container.settings.border }};
+          width: {{ container.settings.width }};
+          height: {{ container.settings.height }};
+          padding: {{ container.settings.padding }};
+          margin: {{ container.settings.margin }};
+          gap: {{ container.settings.gap }};
+          text-decoration:none;
+          color:inherit;
+          {% if is_grid %}
+            grid-column: {{ grid_column }};
+            grid-row: {{ grid_row }};
+          {% elsif is_flex_grid %}
+            flex: 0 0 calc((100% / var(--columns)) - var(--gap));
+            min-width: calc((100% / var(--columns)) - var(--gap));
+            order: {{ flex_order }};
+          {% endif %}
+        "
+      >
+    {% else %}
+      <div 
+        id="{{ container.settings.container_name }}"
+        class="layout-block layout-block--container"
+        style="
+          display: {{ container.settings.layout }};
+          flex-direction: {{ container.settings.flex_direction }};
+          justify-content: {{ container.settings.justify_content }};
+          align-items: {{ container.settings.align_items }};
+          background-color: {{ container.settings.background_color }};
+          border: {{ container.settings.border }};
+          width: {{ container.settings.width }};
+          height: {{ container.settings.height }};
+          padding: {{ container.settings.padding }};
+          margin: {{ container.settings.margin }};
+          gap: {{ container.settings.gap }};
+          {% if is_grid %}
+            grid-column: {{ grid_column }};
+            grid-row: {{ grid_row }};
+          {% elsif is_flex_grid %}
+            flex: 0 0 calc((100% / var(--columns)) - var(--gap));
+            min-width: calc((100% / var(--columns)) - var(--gap));
+            order: {{ flex_order }};
+          {% endif %}
+        "
+      >
+    {% endif %}
+
+      {% render 'copilot-block', container: container, blocks: section.blocks %}
+
+    {% if container_link != blank %}
+      </a>
+    {% else %}
+      </div>
+    {% endif %}
+
+  {%- endfor -%}
+
+</section>
+
+{% javascript %}
+  document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll(".flexible-video-block").forEach(block => {
+
+      const video = block.querySelector("video");
+      const btn = block.querySelector(".copilot-video-card__play");
+      const poster = block.querySelector(".copilot-video-poster");
+
+      if (!video) return;
+
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+
+      function playFullVideo() {
+        video.currentTime = 0;
+        video.muted = false;
+        video.controls = true;
+        block.classList.add("playing");
+
+        if (btn) btn.style.display = "none";
+        //if (poster) poster.style.opacity = "0";
+        if (poster) poster.style.display = "none";
+
+        video.play().catch(() => {});
+      }
+
+      function hoverPreviewStart() {
+          if (window.innerWidth <= 768) return;
+          if (block.classList.contains("playing")) return;
+
+          video.muted = true;
+          video.controls = false;
+
+          if (poster) poster.style.display = "none";
+          //if (btn) btn.style.display = "none";
+
+          video.play().catch(() => {});
+      }
+
+      function hoverPreviewStop() {
+          if (window.innerWidth <= 768) return;
+          if (block.classList.contains("playing")) return;
+
+          video.pause();
+          video.currentTime = 0;
+
+          if (poster) poster.style.display = "";
+          if (btn) btn.style.display = "";
+      }
+
+      if (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          playFullVideo();
+        });
+      }
+
+      block.addEventListener("mouseenter", hoverPreviewStart);
+      block.addEventListener("mouseleave", hoverPreviewStop);
+
+      video.addEventListener("ended", function () {
+          if (block.classList.contains("playing")) {
+              block.classList.remove("playing");
+              video.controls = false;
+              video.muted = true;
+              video.currentTime = 0;
+
+              if (btn) btn.style.display = "";
+              if (poster) poster.style.display = "";
+          }
+      });
+
+    });
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Copilot - Flexible Layout",
+  "settings": [
+    { "type": "select", "id": "layout", "label": "Display", "default": "flex",
+      "options": [
+        { "value": "flex", "label": "Flexbox" },
+        { "value": "grid", "label": "Grid" },
+        { "value": "flex-grid", "label": "Flex Grid" },
+        { "value": "block", "label": "Block" }
+      ]
+    },
+    { "type": "select", "id": "flex_direction", "label": "Dirección", "default": "column",
+      "options": [
+        { "value": "row", "label": "Row" },
+        { "value": "column", "label": "Column" }
+      ]
+    },
+    { "type": "select", "id": "justify_content", "label": "Justify", "default": "center",
+      "options": [
+        { "value": "flex-start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "End" },
+        { "value": "space-between", "label": "Space Between" },
+        { "value": "space-around", "label": "Space Around" }
+      ]
+    },
+    { "type": "select", "id": "align_items", "label": "Align", "default": "center",
+      "options": [
+        { "value": "flex-start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "End" },
+        { "value": "stretch", "label": "Stretch" }
+      ]
+    },
+    { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#eeeeee" },
+    { "type": "text", "id": "border", "label": "Borde", "default": "1px solid #ccc" },
+    { "type": "text", "id": "width", "label": "Ancho", "default": "100%" },
+    { "type": "text", "id": "height", "label": "Alto", "default": "auto" },
+    { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+    { "type": "text", "id": "padding", "label": "Padding", "default": "10px" },
+    { "type": "range", "id": "column_count", "label": "Cantidad de columnas", "min": 1, "max": 12, "default": 3, "info": "Aplica para Grid y Flex Grid" },
+    { "type": "range", "id": "rows_count", "label": "Cantidad de filas", "min": 1, "max": 12, "default": 3, "info": "Aplica para Grid y Flex Grid" },
+    { "type": "text", "id": "gap", "label": "Gap", "default": "0" },
+    { "type": "text", "id": "custom_class", "label": "Clase CSS personalizada", "default": "class" }
+  ],
+  "blocks": [
+    {
+      "type": "container",
+      "name": "Contenedor",
+      "settings": [
+        { "type": "text", "id": "container_name", "label": "Nombre del contenedor", "default": "contenedor-1" },
+        { "type": "select", "id": "layout", "label": "Display", "default": "flex",
+          "options": [
+            { "value": "flex", "label": "Flex" },
+            { "value": "grid", "label": "Grid" },
+            { "value": "block", "label": "Block" }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace del contenedor"
+        },
+        {
+          "type": "checkbox",
+          "id": "link_new_tab",
+          "label": "Abrir en nueva pestaña",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "grid_position",
+          "label": "Posición (Grid/Flex)",
+          "default": "auto/auto",
+          "info": "Para Grid: 'columna/fila' (ej: 1/2). Para Flex Grid: 'columna-fila' (ej: 1-2)"
+        },
+        {
+          "type": "range",
+          "id": "flex_order",
+          "label": "Orden (Flex Grid)",
+          "min": 0,
+          "max": 100,
+          "default": 0,
+          "info": "Controla el orden en Flex Grid"
+        },
+        { "type": "select", "id": "flex_direction", "label": "Dirección", "default": "column",
+          "options": [
+            { "value": "row", "label": "Row" },
+            { "value": "column", "label": "Column" }
+          ]
+        },
+        { "type": "select", "id": "justify_content", "label": "Justify", "default": "center",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "space-between", "label": "Space Between" },
+            { "value": "space-around", "label": "Space Around" }
+          ]
+        },
+        { "type": "select", "id": "align_items", "label": "Align", "default": "center",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "stretch", "label": "Stretch" }
+          ]
+        },
+        { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#eeeeee" },
+        { "type": "text", "id": "border", "label": "Borde", "default": "1px solid #ccc" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "100%" },
+        { "type": "text", "id": "height", "label": "Alto", "default": "auto" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "10px" },
+        { "type": "text", "id": "gap", "label": "Gap", "default": "0" },
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Título",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "título",
+          "label": "Título"
+        },
+        { "type": "select", "id": "heading_tag", "label": "Tag HTML", "default": "h2", "options": [
+          { "value": "h1", "label": "H1" },
+          { "value": "h2", "label": "H2" },
+          { "value": "h3", "label": "H3" },
+          { "value": "h4", "label": "H4" },
+          { "value": "h5", "label": "H5" },
+          { "value": "h6", "label": "H6" }
+        ]},
+        { "type": "color", "id": "color", "label": "Color", "default": "#000000" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "24px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "700" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0 0 10px 0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "100%" },
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Texto",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Texto por defecto" },
+        { "type": "color", "id": "color", "label": "Color", "default": "#000000" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "16px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "400" },
+        { "type": "text", "id": "line_height", "label": "Altura de fuente", "default": "1.2em" },     
+        { "type": "select", "id": "text_align", "label": "Alineación", "default": "left",
+          "options": [ 
+            { "value": "left", "label": "Izquierda" },
+            { "value": "center", "label": "Centro" },
+            { "value": "right", "label": "Derecha" }
+          ]
+        },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Imagen",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "image_picker", "id": "image", "label": "Imagen" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "auto" },
+        { "type": "text", "id": "height", "label": "Alto", "default": "auto" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" },
+        { "type": "text", "id": "border_radius", "label": "Radio de Borde", "default": "0" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Texto Enriquesido",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "richtext","id": "text", "default": "<p>Texto de prueba.</p>", "label": "Texto Enriquesido"},
+        { "type": "color", "id": "color", "label": "Color", "default": "#000000" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "16px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "400" },
+        { "type": "text", "id": "line_height", "label": "Altura de fuente", "default": "1.2em" },     
+        { "type": "select", "id": "text_align", "label": "Alineación", "default": "left",
+          "options": [ 
+            { "value": "left", "label": "Izquierda" },
+            { "value": "center", "label": "Centro" },
+            { "value": "right", "label": "Derecha" }
+          ]
+        },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Botón",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "text", "id": "label", "label": "Texto del botón", "default": "Click aquí" },
+        { "type": "url", "id": "url", "label": "Enlace" },
+        { "type": "color", "id": "background_color", "label": "Fondo", "default": "#000000" },
+        { "type": "color", "id": "color", "label": "Color de texto", "default": "#ffffff" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "16px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "400" },
+        { "type": "text", "id": "line_height", "label": "Altura de fuente", "default": "1.2em" },
+        { "type": "select", "id": "layout", "label": "Display", "default": "flex",
+          "options": [
+            { "value": "flex", "label": "Flex" },
+            { "value": "block", "label": "Block" }
+          ]
+        },
+        { "type": "select", "id": "justify_content", "label": "Justify", "default": "center",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "space-between", "label": "Space Between" },
+            { "value": "space-around", "label": "Space Around" }
+          ]
+        },
+        { "type": "select", "id": "align_items", "label": "Align", "default": "center",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "stretch", "label": "Stretch" }
+          ]
+        },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "10px 20px" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "border", "label": "Borde", "default": "none" },
+        { "type": "text", "id": "border_radius", "label": "Radio de Borde", "default": "0" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "auto" },
+        { "type": "text", "id": "height", "label": "Alto", "default": "auto" },
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "video", "id": "video", "label": "Subir video" },
+        { "type": "url", "id": "video_url", "label": "URL Video (YouTube o Vimeo)" },
+        { "type": "image_picker", "id": "cover_image", "label": "Imagen portada" },
+        { "type": "checkbox", "id": "enable_video_looping", "label": "Loop video", "default": false },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "100%" },
+        { "type": "text", "id": "height", "label": "Alto", "default": "360px" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" },
+        { "type": "text", "id": "border_radius", "label": "Radio de borde", "default": "0" }
+      ]
+    },
+    {
+      "type": "contact_form",
+      "name": "Formulario de contacto",
+      "settings": [
+        {
+          "type": "text",
+          "id": "parent_container_name",
+          "label": "Contenedor padre"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Título",
+          "default": "Contactanos"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Flexible Container",
+      "blocks": [
+        {
+          "type": "container",
+          "settings": {
+            "container_name": "principal",
+            "layout": "flex",
+            "flex_direction": "row",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#f5f5f5",
+            "border": "1px solid #999",
+            "width": "100%",
+            "height": "auto",
+            "padding": "20px"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "Texto dentro del contenedor",
+            "parent_container_name": "principal"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

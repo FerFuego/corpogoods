@@ -1,0 +1,346 @@
+{% style %}
+  .case-module{
+      max-width:1268px;
+      margin: auto;
+  }
+  .case-wrapper{
+      display:flex;
+      gap:70px;
+      height: 500px;
+      align-items: normal;
+      background:#F5F5F5;
+      border-radius:15px;
+      padding: 0px;
+      margin-bottom: 40px;
+  }
+  .case-wrapper.right{
+      flex-direction:row-reverse;
+  }
+  .case-slider{
+    background: #fff;
+    position:relative;
+    min-width: 0;
+    width:60%;
+  }
+  .case-slider-main{
+    overflow:hidden;
+  }
+  .case-thumbs {
+    margin: -130px 0px;
+  }
+  .case-slider-main img{
+    height: 500px;
+      width:100%;
+      border-radius:10px;
+  }
+  .case-thumbs img{
+      border-radius:10px;
+  }
+  .left .case-content{
+    padding: 80px 70px 80px 0px;
+    width:45%;
+  }
+  .right .case-content{
+    padding: 80px 0 80px 70px;
+    width:45%;
+  }
+  .case-title{
+      color:#171717;
+      font-family:Poppins;
+      font-size:30px;
+      font-weight:700;
+      line-height:40px;
+      margin-bottom:20px;
+  }
+  .case-text{
+    color:#979798;
+    font-family:Poppins;
+    font-size:16px;
+    line-height:26px;
+    max-width: 369px;
+  }
+  .case-module .swiper-button-next,
+  .case-module .swiper-button-prev{
+      color:#fff;
+      z-index: 3;
+  }
+  .right .shadow {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    width: auto;
+    top: 0;
+    z-index: 2;
+  }
+  .left .shadow {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    width: auto;
+    top: 0;
+    transform: scaleX(-1);
+    z-index: 2;
+  }
+  .case-module .swiper {
+    height: 500px;
+    width:100%;
+    max-width:100%;
+  }
+  .case-module .swiper-wrapper {
+    max-width:100%;
+  }
+  .case-module .swiper-slide {
+    width:100%;
+    flex-shrink:0;
+  }
+  .case-module .case-thumbs {
+    height: 100px !important;
+    max-width: 90% !important;
+  }
+  .case-thumbs .swiper-slide-thumb-active img {
+    border: 2px solid #ff7a00;
+    border-radius: 10px;
+  }
+  .case-module .case-thumbs .swiper-slide {
+    max-width: 130px;
+  }
+  .case-module .case-thumbs .swiper {
+    max-width: 80%;
+  }
+  .case-module .swiper-button-next { right: 80px; }
+  .case-module .swiper-button-prev { left: 80px; }
+  .case-slider {
+    width:60%;
+    position:relative;
+    min-width:0;
+    overflow:hidden;
+  }
+  .shadow-mobile {
+    display: none;
+  }
+  .case-thumbs {
+  display: flex;
+  justify-content: center;
+}
+
+.case-thumbs .swiper-wrapper {
+  width: auto !important;
+  justify-content: center;
+}
+  @media (max-width: 768px) {
+    .case-module {
+        max-width: 100%;
+        margin: auto;
+        padding: 0 20px;
+    }
+    .case-wrapper.right {
+      gap: 0;
+      height: auto;
+      flex-direction: column-reverse;
+    }
+    .case-module .swiper {
+      height: auto;
+    }
+    .case-wrapper.left {
+      gap: 0;
+      height: auto;
+      flex-direction: column-reverse;
+    }
+    .case-slider { 
+      overflow: visible;
+      width: 100% !important; 
+    }
+    .case-module .case-thumbs,
+    .swiper-wrapper {
+      height: auto !important;
+    }
+    .case-content { 
+      padding: 40px 20px !important;
+      width: 100% !important; 
+    }
+    .case-slider-main img {
+      height: auto;
+    }
+    .case-thumbs {
+      margin: 15px 0px;
+    }
+    .case-title,
+    .case-text { 
+      text-align: center; 
+    }
+    .case-module .swiper-button-next {
+      right: 20px;
+    }
+    .case-module .swiper-button-prev {
+      left: 20px;
+    }
+    .shadow {
+      display: none;
+    }
+    .case-slider-main img {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .shadow-mobile {
+      display: block;
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+{% endstyle %}
+
+<section class="case-module">
+    {% for block in section.blocks %}
+      <div class="case-wrapper {% if block.settings.orientation == 'right' %}right{% endif %} {% if block.settings.orientation == 'left' %}left{% endif %}" {{ block.shopify_attributes }}>
+        <div class="case-slider">
+          <img class="shadow" src="https://cdn.shopify.com/s/files/1/0955/0731/7063/files/shadow.png?v=1772822189" alt="shadow">
+          <img class="shadow-mobile" src="https://cdn.shopify.com/s/files/1/0955/0731/7063/files/shadow-mobile.png?v=1772841064">
+            <div class="swiper case-slider-main swiper-{{ block.id }}">
+                <div class="swiper-wrapper">
+
+                    {% for i in (1..5) %}
+                        {% assign image_key = 'image_' | append: i %}
+                        {% assign image = block.settings[image_key] %}
+
+                        {% if image != blank %}
+                            <div class="swiper-slide">
+                            <img src="{{ image | image_url: width:1200 }}">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <div class="swiper case-thumbs thumbs-{{ block.id }}">
+                <div class="swiper-wrapper">
+
+                {% for i in (1..5) %}
+
+                    {% assign image_key = 'image_' | append: i %}
+                    {% assign image = block.settings[image_key] %}
+
+                    {% if image != blank %}
+                        <div class="swiper-slide">
+                        <img src="{{ image | image_url: width:200 }}">
+                        </div>
+                    {% endif %}
+
+                {% endfor %}
+
+                </div>
+            </div>
+
+        </div>
+        <div class="case-content">
+
+            <div class="case-title">
+                {{ block.settings.title }}
+            </div>
+
+            <div class="case-text">
+                {{ block.settings.text }}
+            </div>
+
+        </div>
+      </div>
+      <script>
+          document.addEventListener("DOMContentLoaded", function(){
+
+          const thumbs_{{ block.id }} = new Swiper(".thumbs-{{ block.id }}",{
+              slidesPerView:3,
+              spaceBetween:15,
+              watchSlidesProgress:true
+          });
+
+          const main_{{ block.id }} = new Swiper(".swiper-{{ block.id }}",{
+              slidesPerView:1,
+              spaceBetween:0,
+              navigation:{
+                  nextEl:".swiper-{{ block.id }} .swiper-button-next",
+                  prevEl:".swiper-{{ block.id }} .swiper-button-prev",
+              },
+              thumbs:{
+                  swiper:thumbs_{{ block.id }}
+              }
+          });
+
+          });
+      </script>
+    {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name":"Copilot - Case Slider",
+  "blocks":[
+    {
+      "type":"case",
+      "name":"Case",
+      "settings":[
+
+        {
+          "type":"select",
+          "id":"orientation",
+          "label":"Orientation",
+          "default":"left",
+          "options":[
+            { "value":"left", "label":"Slider Left"},
+            { "value":"right", "label":"Slider Right"}
+          ]
+        },
+
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title"
+        },
+
+        {
+          "type":"textarea",
+          "id":"text",
+          "label":"Text"
+        },
+
+        {
+          "type":"image_picker",
+          "id":"image_1",
+          "label":"Image 1"
+        },
+        {
+          "type":"image_picker",
+          "id":"image_2",
+          "label":"Image 2"
+        },
+        {
+          "type":"image_picker",
+          "id":"image_3",
+          "label":"Image 3"
+        },
+        {
+          "type":"image_picker",
+          "id":"image_4",
+          "label":"Image 4"
+        },
+        {
+          "type":"image_picker",
+          "id":"image_5",
+          "label":"Image 5"
+        }
+
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name":"Copilot - Case Slider"
+    }
+  ]
+}
+{% endschema %}

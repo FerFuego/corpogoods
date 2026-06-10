@@ -1,0 +1,246 @@
+{% style %}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.copilot-featured-gallery {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1300px;
+  margin: 100px auto;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.copilot-featured-gallery__title {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #171717;
+  max-width: 575px;
+  margin: 0 auto 16px;
+}
+
+.copilot-featured-gallery__subtitle {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #97979880;
+  max-width: 745px;
+  margin: 0 auto 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Posicionamiento */
+.gallery-item--big {
+  grid-row: span 2;
+}
+.gallery-item--medium {
+  grid-row: span 2;
+}
+
+/* Button */
+.copilot-featured-gallery__button {
+  display: inline-block;
+  background: #ff7a00;
+  color: #ffffff;
+  padding: 5px 36px;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: 0.2s ease;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.copilot-featured-gallery__button:hover {
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    margin-bottom: 20px;
+  }
+
+  .gallery-item--big {
+    grid-row: auto;
+    grid-column: span 3;
+  }
+  .gallery-item--medium {
+    grid-row: auto;
+    grid-column: span 1;
+  }
+  .copilot-featured-gallery {
+    margin: 40px 0;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+  .copilot-featured-gallery__title {
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+  }
+  .copilot-featured-gallery__subtitle {
+    line-height: 20px;
+  }
+  .gallery-item:nth-child(2) img,
+  .gallery-item:nth-child(3) img,
+  .gallery-item:nth-child(4) img {
+    height: 85px;
+  }
+  .copilot-featured-gallery__button {
+    padding: 5px 20px;
+  }
+}
+{% endstyle %}
+
+<section class="copilot-featured-gallery">
+
+  <h2 class="copilot-featured-gallery__title">
+    {{ section.settings.title }}
+  </h2>
+
+  <div class="copilot-featured-gallery__subtitle">
+    {{ section.settings.subtitle }}
+  </div>
+
+  <div class="gallery-grid">
+
+    {% if section.settings.image_big != blank %}
+      <div class="gallery-item gallery-item--big">
+        <img 
+          src="{{ section.settings.image_big | image_url: width: 1200 }}"
+          alt=""
+          loading="lazy"
+        >
+      </div>
+    {% endif %}
+
+    {% if section.settings.image_1 != blank %}
+      <div class="gallery-item gallery-item--medium">
+        <img 
+          src="{{ section.settings.image_1 | image_url: width: 800 }}"
+          alt=""
+          loading="lazy"
+        >
+      </div>
+    {% endif %}
+
+    {% if section.settings.image_2 != blank %}
+      <div class="gallery-item">
+        <img 
+          src="{{ section.settings.image_2 | image_url: width: 800 }}"
+          alt=""
+          loading="lazy"
+        >
+      </div>
+    {% endif %}
+
+    {% if section.settings.image_3 != blank %}
+      <div class="gallery-item">
+        <img 
+          src="{{ section.settings.image_3 | image_url: width: 800 }}"
+          alt=""
+          loading="lazy"
+        >
+      </div>
+    {% endif %}
+
+  </div>
+
+  {% if section.settings.button_text != blank %}
+    <a 
+      href="{{ section.settings.button_link }}" 
+      class="copilot-featured-gallery__button"
+    >
+      {{ section.settings.button_text }}
+    </a>
+  {% endif %}
+
+</section>
+
+{% schema %}
+{
+  "name": "Copilot Featured Gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Regalos corporativos pensados para los momentos que importan"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "No todos los regalos sirven para todo. Por eso seleccionamos productos según el contexto: bienvenida de empleados, kits de marca, eventos corporativos o regalos a clientes."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_big",
+      "label": "Imagen grande"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Imagen pequeña 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Imagen pequeña 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Imagen pequeña 3"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto botón",
+      "default": "Explorar catálogo completo"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link botón"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot Featured Gallery",
+    }
+  ]
+}
+{% endschema %}
